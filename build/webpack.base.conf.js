@@ -1,6 +1,5 @@
 var path = require('path')
-var config = require('../config')
-var utils = require('./utils')
+var cssLoaders = require('./css-loaders')
 var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
@@ -8,17 +7,19 @@ module.exports = {
     app: './src/main.js'
   },
   output: {
-    path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    path: path.resolve(__dirname, '../dist/static'),
+    publicPath: '/static/',
     filename: '[name].js'
   },
   resolve: {
+    root: [
+      path.resolve(__dirname, '../src/components'),
+      path.resolve(__dirname, '../src/views')
+    ],
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'src': path.resolve(__dirname, '../src')
     }
   },
   resolveLoader: {
@@ -59,27 +60,25 @@ module.exports = {
         loader: 'vue-html'
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: '[name].[ext]?[hash:7]'
         }
       }
     ]
   },
+  vue: {
+    loaders: cssLoaders({
+      sourceMap: false,
+      extract: false
+    })
+  },
   eslint: {
     formatter: require('eslint-friendly-formatter')
   },
-  vue: {
-    loaders: utils.cssLoaders()
+  externals: {
+    jQuery: 'jQuery'
   }
 }

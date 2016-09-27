@@ -3,23 +3,18 @@ import VueRouter from 'vue-router'
 import App from './components/App'
 
 import Dashboard from './view/Dashboard'
-
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  history: true,
-  linkActiveClass: 'active'
+  mode: 'history',
+  linkActiveClass: 'active',
+  routes: [
+    { path: '/dashboard', component: Dashboard },
+    { path: '*', component: Dashboard }
+  ]
 })
 
-router.map({
-  '/': {
-    name: Dashboard,
-    component: Dashboard
-  }
-})
-
-router.redirect({
-  '*': '/'
-})
-
-router.start(App, '#app')
+new Vue({
+  router,
+  ...App
+}).$mount('#app')
