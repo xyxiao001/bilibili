@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss">
   body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
   }
 
   ul {
