@@ -306,6 +306,20 @@ export default {
     .header .h-menu {
       .menu-wrapper {
         width: 980px;
+
+        ul {
+          li {
+            padding-right: 12px;
+          }
+
+          li.other-menu {
+            width: 50px;
+
+            a {
+              width: 50px;
+            }
+          }
+        }
       }
     }
   }
