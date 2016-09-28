@@ -126,7 +126,7 @@ export default {
           left: 2px;
           top: 2px;
           height: 32px;
-          line-height: 30px;
+          line-height: 32px;
           background-color: #fff;
           background-color: rgba(255,255,255,0.88);
           border-radius: 4px;
@@ -138,7 +138,7 @@ export default {
             padding-left: 26px;
             color: #f25d8e;
             display: inline-block;
-            background: url('../assets/icons.png') -659px -656px no-repeat;
+            background: url('../assets/icons.png') -659px -655px no-repeat;
           }
         }
 
