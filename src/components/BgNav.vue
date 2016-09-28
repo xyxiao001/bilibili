@@ -15,11 +15,48 @@
         </div>
       </div>
     </div>
+    <div class="h-menu">
+      <div class="menu-wrapper">
+        <ul>
+          <li>
+            <router-link :to="{path: '/'}" class="dashboard">
+              <span class="menu-text">首页</span>
+            </router-link>
+          </li>
+          <li class="other-menu" v-for="menu in menus">
+            <router-link :to="{path: menu.url}">
+              <div class="menu-num">
+                <span class="num">{{ menu.num }}</span>
+              </div>
+              <span class="menu-text">{{ menu.text }}</span>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      menus: [
+        { url: '/', text: '动画', num: 100 },
+        { url: '/', text: '番剧', num: 58 },
+        { url: '/', text: '音乐', num: 364 },
+        { url: '/', text: '舞蹈', num: 49 },
+        { url: '/', text: '游戏', num: '999+' },
+        { url: '/', text: '科技', num: 325 },
+        { url: '/', text: '生活', num: 615 },
+        { url: '/', text: '鬼畜', num: 29 },
+        { url: '/', text: '时尚', num: 111 },
+        { url: '/', text: '广告', num: 28 },
+        { url: '/', text: '娱乐', num: 471 },
+        { url: '/', text: '影视', num: 401 }
+      ]
+    }
+  }
 }
 </script>
 
@@ -175,11 +212,98 @@ export default {
         transform: scale(1);
       }
     }
+
+    .h-menu {
+      width: 100%;
+      background: #fff;
+
+      .menu-wrapper {
+        margin: auto;
+        width: 1160px;
+        height: 62px;
+        padding: 6px 0;
+
+        ul {
+
+          li {
+            float: left;
+            position: relative;
+            font-size: 14px;
+            display: block;
+            height: 50px;
+            padding-right: 20px;
+
+            a {
+              display: inline-block;
+              width: 28px;
+              height: 50px;
+
+              span.menu-text {
+                text-align: center;
+                display: inline-block;
+                padding-top: 23px;
+              }
+
+              &:hover span{
+                color: #00a1d6;
+              }
+            }
+
+            .dashboard {
+              background: url('../assets/icons.png') -658px -1170px no-repeat;
+            }
+          }
+
+          li.other-menu {
+            width: 62px;
+            padding-right: 0;
+
+            a {
+              width: 62px;
+              text-align: center;
+            }
+
+            .menu-num {
+              position: absolute;
+              top: 8px;
+              left: 0;
+              height: 14px;
+              width: 100%;
+              text-align: center;
+
+              span.num {
+                position: static;
+                display: inline-block;
+                vertical-align: top;
+                top: auto;
+                left: auto;
+                margin-left: 0;
+                background-color: #ffafc9;
+                color: #fff;
+                border-radius: 4px;
+                height: 12px;
+                line-height: 12px;
+                font-size: 11px;
+                min-width: 18px;
+                padding: 1px 4px 3px 3px;
+                transform: scale(0.9);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   @media screen and (max-width: 1400px) {
     .header .h-content {
       .h-info {
+        width: 980px;
+      }
+    }
+
+    .header .h-menu {
+      .menu-wrapper {
         width: 980px;
       }
     }

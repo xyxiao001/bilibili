@@ -30,13 +30,18 @@ export default {
 </script>
 
 <style lang="scss">
-  body {
+  html,body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
     font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    background: #fff;
+    color: #222;
+    min-height: 990px;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  body, ul, span, p, h1, h2, h3 {
+  ul, span, p, h1, h2, h3 {
     margin: 0;
     padding: 0;
   }
