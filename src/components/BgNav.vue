@@ -278,14 +278,15 @@ export default {
                 top: auto;
                 left: auto;
                 margin-left: 0;
+                margin-top: -1px;
                 background-color: #ffafc9;
                 color: #fff;
                 border-radius: 4px;
-                height: 12px;
+                height: 13px;
                 line-height: 12px;
                 font-size: 11px;
                 min-width: 18px;
-                padding: 1px 4px 2px 3px;
+                padding: 1px 3px 2px 3px;
                 transform: scale(0.9);
               }
             }
