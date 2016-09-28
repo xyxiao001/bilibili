@@ -285,7 +285,7 @@ export default {
                 line-height: 12px;
                 font-size: 11px;
                 min-width: 18px;
-                padding: 1px 4px 3px 3px;
+                padding: 1px 4px 2px 3px;
                 transform: scale(0.9);
               }
             }
