@@ -116,6 +116,7 @@
             margin-left: -10px;
 
             a {
+              width: 40px;
               padding-left: 32px;
             }
           }
@@ -188,6 +189,14 @@
 
       li.none:hover {
         background: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    .top-nav {
+      .nav-content {
+        width: 980px;
       }
     }
   }
