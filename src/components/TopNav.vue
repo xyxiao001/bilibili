@@ -105,6 +105,7 @@
           float: left;
           line-height: 42px;
           padding: 0 15px;
+          transition: all 0.3s ease;
 
           &:first-child {
             padding: 0;
@@ -140,6 +141,7 @@
             float: left;
             line-height: 42px;
             padding: 0 10px;
+            transition: all 0.3s ease;
 
             &:last-child {
               padding-right: 0px;
@@ -181,7 +183,7 @@
         }
       }
       li:hover {
-        background-color: rgba(255,255,255,0.4);
+        background-color: rgba(255,255,255,0.2);
       }
 
       li.none:hover {
