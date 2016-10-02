@@ -31,6 +31,16 @@
               <span class="menu-text">{{ menu.text }}</span>
             </router-link>
           </li>
+          <li class="last-menu">
+            <router-link :to="{path: '/'}" class="square">
+              <span>广场</span>
+            </router-link>
+          </li>
+          <li class="last-menu">
+            <router-link :to="{path: '/'}" class="live">
+              <span>直播</span>
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -289,6 +299,34 @@ export default {
                 padding: 1px 3px 2px 3px;
                 transform: scale(0.9);
               }
+            }
+          }
+
+          li.last-menu{
+            float: left;
+            position: relative;
+            font-size: 14px;
+            display: block;
+            height: 50px;
+            margin-left: 20px;
+            padding-right: 12px;
+
+            a {
+              width: 40px;
+              padding-left: 22px;
+              padding-right: 0;
+              padding-top: 0;
+              line-height: 50px;
+              margin: 0!important;
+              font-size: 16px;
+            }
+
+            a.square {
+              background: url('../assets/icons.png') -664px -904px no-repeat;
+            }
+
+            a.live {
+              background: url('../assets/icons.png') -664px -518px no-repeat;
             }
           }
         }
