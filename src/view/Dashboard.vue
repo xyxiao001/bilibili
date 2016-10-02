@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import TopNav from 'TopNav'
-import BgNav from 'BgNav'
+import TopNav from '../components/TopNav'
+import BgNav from '../components/BgNav'
 
 export default {
   data () {
