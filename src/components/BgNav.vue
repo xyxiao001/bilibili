@@ -42,6 +42,10 @@
             </router-link>
           </li>
         </ul>
+        <div class="right-menu">
+          <img src="../assets/r1.gif" alt="动起来" />
+          <router-link :to="{path: '/'}" class="phone"></router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -327,6 +331,26 @@ export default {
 
             a.live {
               background: url('../assets/icons.png') -664px -518px no-repeat;
+            }
+          }
+        }
+
+        .right-menu {
+          float: right;
+          margin-right: -1px;
+          height: 50px;
+
+          a.phone {
+            position: relative;
+            overflow: visible;
+            display: inline-block;
+            width: 58px;
+            height: 45px;
+            margin: 2px 0;
+            background: url(../assets/app-link.png) center center no-repeat;
+
+            &:hover {
+              background: url(../assets/app-link-hover.png) center center no-repeat;
             }
           }
         }
