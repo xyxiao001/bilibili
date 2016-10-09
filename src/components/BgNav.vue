@@ -9,7 +9,7 @@
             <span>排行榜</span>
           </router-link>
           <form>
-            <input type="text" name="search" placeholder="大明宫景，多少宿命">
+            <input type="text" name="search" placeholder="如何在MC中还原《三体》原著">
             <button type="button"></button>
           </form>
         </div>
@@ -44,7 +44,9 @@
         </ul>
         <div class="right-menu">
           <img src="../assets/r1.gif" alt="动起来" />
-          <router-link :to="{path: '/'}" class="phone"></router-link>
+          <router-link :to="{path: '/'}" class="phone">
+            <div class="mobile-p-box"><div class="mobile-p-qrcode"></div></div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -349,8 +351,38 @@ export default {
             margin: 2px 0;
             background: url(../assets/app-link.png) center center no-repeat;
 
+            .mobile-p-box {
+              position: absolute;
+              top: 44px;
+              right: -20px;
+              visibility: hidden;
+              overflow: hidden;
+              width: 259px;
+              height: 174px;
+              background: url(../assets/app-box.png) center center no-repeat;
+              opacity: 0;
+              transition: .2s;
+              transition-property: opacity;
+              *display: none;
+
+              .mobile-p-qrcode {
+                position: absolute;
+                top: 30px;
+                left: 80px;
+                width: 100px;
+                height: 100px;
+                background: url(../assets/app-qrcode.png) center center no-repeat;
+              }
+            }
+
             &:hover {
               background: url(../assets/app-link-hover.png) center center no-repeat;
+            }
+
+            &:hover .mobile-p-box {
+              visibility: visible;
+              opacity: 1;
+              *display: block;
             }
           }
         }
@@ -380,6 +412,12 @@ export default {
             a {
               width: 50px;
             }
+          }
+
+          li.last-menu {
+            margin-left: 14px;
+            padding-left: 0;
+            padding-right: 6px;
           }
         }
       }
