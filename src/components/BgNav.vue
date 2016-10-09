@@ -30,6 +30,7 @@
               </div>
               <span class="menu-text">{{ menu.text }}</span>
             </router-link>
+            <smallMenu :items="menu.items"></smallMenu>
           </li>
           <li class="last-menu">
             <router-link :to="{path: '/'}" class="square">
@@ -40,6 +41,7 @@
             <router-link :to="{path: '/'}" class="live">
               <span>直播</span>
             </router-link>
+            <smallMenu :items="onlines"></smallMenu>
           </li>
         </ul>
         <div class="right-menu">
@@ -54,24 +56,167 @@
 </template>
 
 <script>
+import SmallMenu from '../components/SmallMenu'
 export default {
   data () {
     return {
       menus: [
-        { url: '/', text: '动画', num: 100 },
-        { url: '/', text: '番剧', num: 58 },
-        { url: '/', text: '音乐', num: 364 },
-        { url: '/', text: '舞蹈', num: 49 },
-        { url: '/', text: '游戏', num: '999+' },
-        { url: '/', text: '科技', num: 325 },
-        { url: '/', text: '生活', num: 615 },
-        { url: '/', text: '鬼畜', num: 29 },
-        { url: '/', text: '时尚', num: 111 },
-        { url: '/', text: '广告', num: 28 },
-        { url: '/', text: '娱乐', num: 471 },
-        { url: '/', text: '影视', num: 401 }
+        {
+          url: '/',
+          text: '动画',
+          num: 100,
+          items: [
+            { url: '/', text: 'MAD·AMV' },
+            { url: '/', text: 'MMD·3D' },
+            { url: '/', text: '短片·手书·配音' },
+            { url: '/', text: '综合' }
+          ]
+        },
+        {
+          url: '/',
+          text: '番剧',
+          num: 58,
+          items: [
+            { url: '/', text: '连载动画' },
+            { url: '/', text: '完结动画' },
+            { url: '/', text: '国产动画' },
+            { url: '/', text: '资讯' },
+            { url: '/', text: '官方延伸' },
+            { url: '/', text: '新番时间表' },
+            { url: '/', text: '番剧索引' }
+          ]
+        },
+        {
+          url: '/',
+          text: '音乐',
+          num: 764,
+          items: [
+            { url: '/', text: '原创音乐' },
+            { url: '/', text: '翻唱' },
+            { url: '/', text: 'VOCALOID·UTAU' },
+            { url: '/', text: '演奏' },
+            { url: '/', text: '三次元音乐' },
+            { url: '/', text: 'OP/ED/OST' },
+            { url: '/', text: '音乐选集' }
+          ]
+        },
+        {
+          url: '/',
+          text: '舞蹈',
+          num: 110,
+          items: [
+            { url: '/', text: '宅舞' },
+            { url: '/', text: '三次元舞蹈' },
+            { url: '/', text: '舞蹈教程' }
+          ]
+        },
+        {
+          url: '/',
+          text: '游戏',
+          num: '999+',
+          items: [
+            { url: '/', text: '单机联机' },
+            { url: '/', text: '网游·电竞' },
+            { url: '/', text: '音游' },
+            { url: '/', text: 'Mugen' },
+            { url: '/', text: 'GMV' }
+          ]
+        },
+        {
+          url: '/',
+          text: '科技',
+          num: 659,
+          items: [
+            { url: '/', text: '纪录片' },
+            { url: '/', text: '趣味科普人文' },
+            { url: '/', text: '野生技术协会' },
+            { url: '/', text: '演讲·公开课' },
+            { url: '/', text: '星海' },
+            { url: '/', text: '数码' },
+            { url: '/', text: '机械' }
+          ]
+        },
+        {
+          url: '/',
+          text: '生活',
+          num: 885,
+          items: [
+            { url: '/', text: '搞笑' },
+            { url: '/', text: '日常' },
+            { url: '/', text: '美食圈' },
+            { url: '/', text: '动物圈' },
+            { url: '/', text: '手工' },
+            { url: '/', text: '绘画' },
+            { url: '/', text: '运动' }
+          ]
+        },
+        {
+          url: '/',
+          text: '鬼畜',
+          num: 93,
+          items: [
+            { url: '/', text: '鬼畜调教' },
+            { url: '/', text: '音MAD' },
+            { url: '/', text: '人力VOCALOID' },
+            { url: '/', text: '教程演示' }
+          ]
+        },
+        {
+          url: '/',
+          text: '时尚',
+          num: 203,
+          items: [
+            { url: '/', text: '美妆' },
+            { url: '/', text: '服饰' },
+            { url: '/', text: '健身' },
+            { url: '/', text: '资讯' }
+          ]
+        },
+        {
+          url: '/',
+          text: '广告',
+          num: 28,
+          items: [
+           { url: '/', text: '其实我没有' }
+          ]
+        },
+        {
+          url: '/',
+          text: '娱乐',
+          num: 773,
+          items: [
+           { url: '/', text: '综艺' },
+           { url: '/', text: '明星' },
+           { url: '/', text: '韩流相关' }
+          ]
+        },
+        {
+          url: '/',
+          text: '影视',
+          num: 993,
+          items: [
+           { url: '/', text: '电影' },
+           { url: '/', text: '电视剧' }
+          ]
+        }
+      ],
+      onlines: [
+        { url: '/', text: '萌宅推荐' },
+        { url: '/', text: '手机直播' },
+        { url: '/', text: '绘画专区' },
+        { url: '/', text: '唱见舞见' },
+        { url: '/', text: '御宅文化' },
+        { url: '/', text: '生活娱乐' },
+        { url: '/', text: '单机联机' },
+        { url: '/', text: '网络游戏' },
+        { url: '/', text: '电子竞技' },
+        { url: '/', text: '手游直播' },
+        { url: '/', text: '放映厅' }
       ]
     }
+  },
+  components: {
+    SmallMenu
   }
 }
 </script>
@@ -263,6 +408,10 @@ export default {
               &:hover span{
                 color: #00a1d6;
               }
+            }
+
+            &:hover ul.small-menu {
+              display: block;
             }
 
             .dashboard {
