@@ -12,13 +12,50 @@
         <li>
           <router-link :to="{path: '/'}" title="画友">画友</router-link>
         </li>
-        <li v-on:mouseover="showIn($event)" v-on:mouseout="showOut($event)">
-          <router-link :to="{path: '/'}" title="游戏中心" id="gameCenter">游戏中心</router-link>
-          <div class="show-content" v-on:mouseover="selfIn($event)" v-on:mouseout="selfOut($event)">游戏中心</div>
+        <li>
+          <router-link :to="{path: '/'}" title="游戏中心" id="gameCenter" class="show-tag">游戏中心</router-link>
+          <div class="show-content">
+            <div class="left">
+              <div class="banner">
+                <a target="_blank" href="http://vipgift.biligame.com/">
+                  <img src="http://i0.hdslb.com/bfs/game/32bbcb85fb7c344f30f46a5b30f9219243ec9740.jpg" alt="大会员礼包">
+                  <span>大会员礼包</span>
+                </a>
+              </div>
+              <div class="brief clearfix">
+                <a target="_blank" title="命运-冠位指定（Fate/GO）" href="http://acg.tv/u1Hz">
+                  <img src="http://i0.hdslb.com/bfs/game/f7d4ee0877089e4079b8f0b4f5c95dd4ceba512a.png" alt="命运-冠位指定（Fate/GO）">
+                  <span>命运-冠位指定（Fate/GO）</span>
+                </a>
+                <a target="_blank" title="如果的世界" href="http://rgdsj.biligame.com/">
+                  <img src="http://i0.hdslb.com/bfs/game/b8132ed0de34f1cd53bab5e2a40c9f48c01542fb.png" alt="如果的世界">
+                  <span>如果的世界</span>
+                </a>
+                <a target="_blank" title="阴阳师" href="http://yys.biligame.com/">
+                    <img src="http://i0.hdslb.com/bfs/game/3b205675d44bbd90e6ea46d4baec9674bda6e642.png" alt="阴阳师">
+                    <span>阴阳师</span>
+                </a>
+              </div>
+            </div>
+            <div class="right">
+              <a class="bbs" target="_blank" href="http://bbs.biligame.com">游戏论坛</a>
+              <div class="all">
+                <a
+                  target="_blank"
+                  v-for="rank in ranks"
+                  :href="rank.url"
+                  v-on:mouseover="show(rank.img)"
+                  v-on:mouseout="leave">
+                <span>{{ rank.text }}</span>
+              </a>
+              </div>
+            </div>
+            <div class="imgdiv" style="background-repeat: no-repeat;"></div>
+          </div>
         </li>
-        <li v-on:mouseover="showIn($event)" v-on:mouseout="showOut($event)">
-          <router-link :to="{path: '/'}" title="直播" id="online">直播</router-link>
-          <div class="show-content" v-on:mouseover="selfIn($event)" v-on:mouseout="selfOut($event)">直播</div>
+        <li>
+          <router-link :to="{path: '/'}" title="直播" id="online" class="show-tag">直播</router-link>
+          <div class="show-content">直播</div>
         </li>
         <li>
           <router-link :to="{path: '/'}" title="周边">周边</router-link>
@@ -49,36 +86,63 @@
 export default {
   data () {
     return {
-      set: 0
+      set: 0,
+      showImg: '',
+      ranks: [
+        {
+          url: 'http://bh3.biligame.com/yuyue/',
+          text: '崩坏3',
+          img: 'http://i0.hdslb.com/bfs/game/cbab91ba8981913b894c74433eee5ebfdd80910b.png'
+        },
+        {
+          url: 'http://ntdgm.biligame.com/yuyue.html',
+          text: '那兔之大国梦',
+          img: 'http://i0.hdslb.com/bfs/game/c0d223aa39c4a2ad9a9e201399fb2c6109eb3538.png'
+        },
+        {
+          url: 'http://sdmht.biligame.com/yuyue.html',
+          text: '神代梦华谭',
+          img: 'http://i0.hdslb.com/bfs/game/6b138b68d4bcb75c486ffa7e592970298e659c29.png'
+        },
+        {
+          url: 'http://tank.biligame.com/yuyue.html',
+          text: '装甲联盟',
+          img: 'http://i0.hdslb.com/bfs/game/82d16f654bfcc27f728bc8a8e9fb193310484eee.png'
+        },
+        {
+          url: 'http://kfq.biligame.com/yuyue/',
+          text: '少女咖啡枪',
+          img: 'http://i0.hdslb.com/bfs/game/0f38471ed9f2260a6625fc3df1cf947994be1541.png'
+        },
+        {
+          url: 'http://madoka.biligame.com/yuyue.html',
+          text: '魔法少女小圆',
+          img: 'http://i0.hdslb.com/bfs/game/c776546e88a6c2ddf6d5c3fc1bab388ea4154ddd.png'
+        },
+        {
+          url: 'http://hywz.biligame.com/yuyue.html',
+          text: '幻影纹章',
+          img: 'http://i0.hdslb.com/bfs/game/59d24a99226e9d1d273708b1a78452c811bf0aa9.png'
+        }
+      ]
     }
   },
   methods: {
-    showIn (event) {
-      if (event.target.nodeName === 'A') {
-        clearTimeout(this.set)
-        var id = event.target.getAttribute('id')
-        document.querySelectorAll('.show-content').forEach(function (val) {
-          val.style.display = 'none'
-        })
-        document.querySelector('#' + id + '+.show-content').style.display = 'block'
-      }
+    show (img) {
+      document.querySelector('.imgdiv').style.background = 'url(' + img + ')'
     },
-    showOut (event) {
-      if (event.target.nodeName === 'A') {
-        var id = event.target.getAttribute('id')
-        this.set = setTimeout(() => {
-          document.querySelector('#' + id + '+.show-content').style.display = 'none'
-        }, 500)
-      }
+    leave () {
+      document.querySelector('.imgdiv').style.background = ''
     },
-    selfIn (event) {
-      clearTimeout(this.set)
-      event.target.style.display = 'block'
-    },
-    selfOut (event) {
-      this.set = setTimeout(() => {
-        event.target.style.display = 'none'
-      }, 500)
+    hasClass (all, name) {
+      var arr = all.split(' ')
+      var has = false
+      arr.forEach(function (val) {
+        if (val === name) {
+          has = true
+        }
+      })
+      return has
     }
   },
   // 页面进入执行
@@ -166,6 +230,129 @@ export default {
             background: #fff;
             text-align: left;
             transition: all 0.3s ease;
+
+            .left {
+              width: 265px;
+              margin: 12px 0 0 0;
+              float: left;
+
+              .banner {
+                width: 240px;
+                height: 128px;
+                margin-left: 12px;
+
+                a {
+                  position: relative;
+                  padding: 0;
+
+                  img {
+                    width: 240px;
+                    height: 128px;
+                    border-radius: 4px;
+                  }
+
+                  span {
+                    width: 220px;
+                    padding: 0 10px;
+                    border-radius: 4px;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    font-size: 12px;
+                    line-height: 30px;
+                    text-shadow: 1px 1px 1px #000;
+                    color: #fff;
+                    background: url(http://static.biligame.net/biligametop/img/shadow.png) repeat-x;
+                  }
+                }
+              }
+
+              .brief {
+                margin-top: 6px;
+                a {
+                  position: relative;
+                  width: 64px;
+                  height: 104px;
+                  padding: 6px 12px 0;
+                  display: block;
+                  float: left;
+                  overflow: hidden;
+
+                  &:hover {
+                    background-color: #e5e9ef;
+                  }
+
+                  img {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 12px;
+                  }
+
+                  span {
+                    position: absolute;
+                    top: 72px;
+                    left: 17px;
+                    width: 4em;
+                    height: 14px;
+                    margin: 8px auto;
+                    display: block;
+                    font-size: 14px;
+                    line-height: 1;
+                    text-align: center;
+                    color: #222;
+                    overflow: hidden;
+                  }
+                }
+              }
+            }
+
+            .right {
+              width: 201px;
+              min-height: 234px;
+              margin: 12px 0 0 0;
+              float: left;
+              background: url(http://static.biligame.net/biligametop/img/line.png) no-repeat;
+
+              .bbs {
+                margin-top: -4px;
+                margin-right: 12px;
+                display: inline-block;
+                float: right;
+                font-size: 12px;
+                color: #00a1d6;
+              }
+
+              .all {
+                padding: 35px 0 0 6px;
+                background: url(http://static.biligame.net/biligametop/img/title.png) no-repeat;
+
+                a {
+                  width: 163px;
+                  padding-left: 16px;
+                  display: block;
+                  font-size: 12px;
+                  line-height: 28px;
+                  color: #222;
+
+                  &:hover {
+                    background-color: #e5e9ef;
+                  }
+                }
+              }
+            }
+
+            .imgdiv {
+              width: 220px;
+              height: 220px;
+              display: block;
+              position: absolute;
+              bottom: 0;
+              left: 442px;
+            }
+          }
+
+          &:hover .show-content {
+            display: block;
           }
 
           &:first-child {

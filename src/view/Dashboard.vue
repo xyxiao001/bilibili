@@ -41,7 +41,7 @@ export default {
     -webkit-tap-highlight-color: transparent;
   }
 
-  ul, span, p, h1, h2, h3 {
+  ul, span, p, h1, h2, h3, a {
     margin: 0;
     padding: 0;
   }
