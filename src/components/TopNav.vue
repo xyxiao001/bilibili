@@ -12,12 +12,13 @@
         <li>
           <router-link :to="{path: '/'}" title="画友">画友</router-link>
         </li>
-        <li>
-          <router-link :to="{path: '/'}" title="游戏中心">游戏中心</router-link>
-          <div class="show-content">123</div>
+        <li v-on:mouseover="showIn($event)" v-on:mouseout="showOut($event)">
+          <router-link :to="{path: '/'}" title="游戏中心" id="gameCenter">游戏中心</router-link>
+          <div class="show-content" v-on:mouseover="selfIn($event)" v-on:mouseout="selfOut($event)">游戏中心</div>
         </li>
-        <li>
-          <router-link :to="{path: '/'}" title="直播">直播</router-link>
+        <li v-on:mouseover="showIn($event)" v-on:mouseout="showOut($event)">
+          <router-link :to="{path: '/'}" title="直播" id="online">直播</router-link>
+          <div class="show-content" v-on:mouseover="selfIn($event)" v-on:mouseout="selfOut($event)">直播</div>
         </li>
         <li>
           <router-link :to="{path: '/'}" title="周边">周边</router-link>
@@ -46,9 +47,38 @@
 
 <script>
 export default {
+  data () {
+    return {
+      set: 0
+    }
+  },
   methods: {
-    in () {
-      console.log(1)
+    showIn (event) {
+      if (event.target.nodeName === 'A') {
+        clearTimeout(this.set)
+        var id = event.target.getAttribute('id')
+        document.querySelectorAll('.show-content').forEach(function (val) {
+          val.style.display = 'none'
+        })
+        document.querySelector('#' + id + '+.show-content').style.display = 'block'
+      }
+    },
+    showOut (event) {
+      if (event.target.nodeName === 'A') {
+        var id = event.target.getAttribute('id')
+        this.set = setTimeout(() => {
+          document.querySelector('#' + id + '+.show-content').style.display = 'none'
+        }, 500)
+      }
+    },
+    selfIn (event) {
+      clearTimeout(this.set)
+      event.target.style.display = 'block'
+    },
+    selfOut (event) {
+      this.set = setTimeout(() => {
+        event.target.style.display = 'none'
+      }, 500)
     }
   },
   // 页面进入执行
@@ -119,16 +149,15 @@ export default {
         height: 42px;
 
         li{
+          position: relative;
           float: left;
           line-height: 42px;
-          padding: 0 15px;
           transition: all 0.3s ease;
 
           .show-content {
             display: none;
             position: absolute !important;
             top: 42px;
-            left: 115px;
             width: 466px;
             height: 256px;
             border-radius: 0 0 4px 4px;
@@ -155,7 +184,7 @@ export default {
 
           a {
             display: inline-block;
-            width: 100%;
+            padding: 0 15px;
             height: 100%;
           }
         }
