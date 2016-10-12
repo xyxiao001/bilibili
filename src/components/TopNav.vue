@@ -55,7 +55,26 @@
         </li>
         <li>
           <router-link :to="{path: '/'}" title="直播" id="online" class="show-tag">直播</router-link>
-          <div class="show-content">直播</div>
+          <div class="show-content live-box">
+            <div class="live-lf">
+              <p class="title">热门直播:</p>
+              <div class="lf-list">
+                <a href="http://live.bilibili.com/1169523" target="_blank" class="lf-item"><img src="http://i0.hdslb.com/bfs/face/0a3635d76b2dcb6379dc84d27b03dbc892123c93.jpg"><i>LIVE</i><p>番茄君也是水果</p></a>
+                <a href="http://live.bilibili.com/291263" target="_blank" class="lf-item"><img src="http://i0.hdslb.com/bfs/face/fa6f9fabb7bdf08f413fe6d0a99ad74bbadfab4e.jpg"><i>LIVE</i><p>许仙大官人丶</p></a>
+                <a href="http://live.bilibili.com/191313" target="_blank" class="lf-item"><img src="http://i0.hdslb.com/bfs/face/9c6cda4e0d0fcbe54817a4f0b455b15e1895b537.jpg"><i>LIVE</i><p>蠢棉</p></a>
+                <a href="http://live.bilibili.com/18057" target="_blank" class="lf-item"><img src="http://i1.hdslb.com/bfs/face/6da3e04dcb01237af3b9b446d39121e67009b1f6.jpg"><i>LIVE</i><p>旋转的亚索</p></a>
+                <a href="http://live.bilibili.com/24838" target="_blank" class="lf-item"><img src="http://i1.hdslb.com/bfs/face/7d6b5a8952d6b6162a3777634d1e432ebfbfc216.jpg"><i>LIVE</i><p>二五八万KT</p></a>
+                <a href="http://live.bilibili.com/272849" target="_blank" class="lf-item"><img src="http://i2.hdslb.com/bfs/face/291b06d44fb15321a629239f945a4aa4ac45a792.jpg"><i>LIVE</i><p>猴叔w</p></a>
+              </div>
+            </div>
+            <div class="live-lr">
+              <p class="title title2">热门活动:</p>
+              <div class="banner">
+                <a href="http://live.bilibili.com/hd/aki2016" target="_blank" title="红叶祭二阶开放啦"><img src="http://i0.hdslb.com/bfs/live/46cb3071202cd942602692071d61f07143e5fd34.jpg"></a>
+                <a href="http://live.bilibili.com/hd/momiji" target="_blank" title="红叶祭三阶-miss 椛总选举"><img src="http://i0.hdslb.com/bfs/live/71e0b3cb7cde56ddd0da73860016ad690c4e01b8.jpg"></a>
+              </div>
+            </div>
+          </div>
         </li>
         <li>
           <router-link :to="{path: '/'}" title="周边">周边</router-link>
@@ -348,6 +367,138 @@ export default {
               position: absolute;
               bottom: 0;
               left: 442px;
+            }
+          }
+
+          .live-box {
+            position: relative;
+            padding: 20px 0 0px 20px;
+            width: 504px;
+            background: #fff;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+            font-family: "微软雅黑";
+
+            .title {
+              padding: 0;
+              margin: 0;
+              font-size: 14px;
+              line-height: 15px;
+              color: #ea759f;
+            }
+
+            .live-lf {
+              float: left;
+              width: 254px;
+
+              .lf-list {
+                margin: 6px 0 0;
+                border-right: 1px solid #eaeaea;
+
+                .lf-item {
+                  position: relative;
+                  display: inline-block;
+                  position: relative;
+                  margin: 10px 17px 0 0;
+                  width: 64px;
+                  height: 100px;
+                  padding: 0;
+
+                  img {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                  }
+
+                  i {
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    background: rgba(0,0,0,.5);
+                    font-style: normal;
+                    font-size: 15px;
+                    color: #fff;
+                    text-indent: 22px;
+                    line-height: 64px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    animation: scale-in-ease cubic-bezier(.22, .58, .12, .98) .5s;
+                  }
+
+                  i:before {
+                    position: absolute;
+                    left: 8px;
+                    top: 27px;
+                    content: "";
+                    width: 12px;
+                    height: 12px;
+                    background: #ff699e;
+                    border-radius: 50%;
+                    overflow: hidden;
+                  }
+
+                  @keyframes scale-in-ease {
+                    0% {
+                      opacity: 0;
+                      -webkit-transform: scale(0);
+                      transform: scale(0);
+                    }
+                    50% {
+                      -webkit-transform: scale(1);
+                      transform: scale(1);
+                    }
+                    100% {
+                      opacity: 1;
+                      -webkit-transform: scale(1);
+                      transform: scale(1);
+                    }
+                  }
+
+                  p {
+                    position: absolute;
+                    top: 60px;
+                    padding: 0;
+                    margin: 3px 0 0;
+                    text-align: center;
+                    color: #000;
+                    width: 100%;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    font-size: 12px;
+                  }
+
+                  &:hover i {
+                    display: block;
+                  }
+                }
+              }
+            }
+
+            .live-lr {
+              width: 250px;
+              display: inline-block;
+
+              .banner {
+                margin-top: 16px;
+
+                a {
+                  display: block;
+                  padding: 10px 21px;
+                  width: 208px;
+                  height: 80px;
+
+                  &:hover {
+                    background-color: #eaeaea;
+                  }
+                }
+              }
             }
           }
 
