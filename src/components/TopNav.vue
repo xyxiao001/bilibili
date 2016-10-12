@@ -14,6 +14,7 @@
         </li>
         <li>
           <router-link :to="{path: '/'}" title="游戏中心">游戏中心</router-link>
+          <div class="show-content">123</div>
         </li>
         <li>
           <router-link :to="{path: '/'}" title="直播">直播</router-link>
@@ -42,6 +43,22 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  methods: {
+    in () {
+      console.log(1)
+    }
+  },
+  // 页面进入执行
+  mounted () {
+  },
+  // 页面切换
+  destroyed () {
+  }
+}
+</script>
 
 <style lang="scss">
   .top-nav {
@@ -106,6 +123,21 @@
           line-height: 42px;
           padding: 0 15px;
           transition: all 0.3s ease;
+
+          .show-content {
+            display: none;
+            position: absolute !important;
+            top: 42px;
+            left: 115px;
+            width: 466px;
+            height: 256px;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+            position: relative;
+            background: #fff;
+            text-align: left;
+            transition: all 0.3s ease;
+          }
 
           &:first-child {
             padding: 0;
