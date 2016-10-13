@@ -94,6 +94,9 @@
           </li>
           <li class="none">
             <router-link :to="{path: '/'}" title="投稿" class="i-link">投 稿</router-link>
+            <ul class="s-menu">
+
+            </ul>
           </li>
         </ul>
       </div>

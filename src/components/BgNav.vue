@@ -35,6 +35,41 @@
           <li class="last-menu">
             <router-link :to="{path: '/'}" class="square">
               <span>广场</span>
+              <div class="second-menu">
+                <ul>
+                  <li>
+                    <a href="http://activity.bilibili.com">
+                      <i class="i-activity"></i>
+                      <b>活动中心</b>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://game.bilibili.com">
+                      <i class="i-game"></i>
+                      <b>游戏中心</b>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://h.bilibili.com">
+                      <i class="i-h"></i>
+                      <b>画友</b>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://www.bilibili.com/mango">
+                      <i class="i-m"></i>
+                      <b>芒果TV</b>
+                    </a>
+                  </li>
+                </ul>
+                <div class="s-right">
+                  <div class="item">
+                    <a href="http://www.bilibili.com/event">
+                      <img src="http://i0.hdslb.com/group1/M00/B7/C6/oYYBAFefJyWAdVAcAAD9KmVEAFw381.jpg">
+                    </a>
+                  </div>
+                </div>
+              </div>
             </router-link>
           </li>
           <li class="last-menu">
@@ -483,6 +518,116 @@ export default {
             a.live {
               background: url('../assets/icons.png') -664px -518px no-repeat;
             }
+
+            .second-menu {
+              display: none;
+              position: absolute;
+              top: 49px;
+              left: 0;
+              padding-top: 20px;
+              padding-bottom: 20px;
+              white-space: nowrap;
+              width: 387px;
+              height: 188px;
+              box-shadow: rgba(0,0,0,0.16) 0 2px 4px;
+              border-radius: 0 0 4px 4px;
+
+              ul {
+                width: 107px;
+                margin-top: -6px;
+
+                li {
+                  position: relative;
+                  font-size: 12px;
+                  line-height: 20px;
+                  width: 87px;
+                  height: 24px;
+                  overflow: hidden;
+                  text-align: left;
+                  transition: .2s all;
+                  margin-top: 8px;
+
+                  &:first-child {
+                    margin-top: 0;
+                  }
+
+                  a {
+                    white-space: nowrap;
+                    transition: .2s all;
+                    overflow: hidden;
+                    position: relative;
+                    line-height: 18px;
+                    width: auto;
+                    left: 0;
+                    padding: 2px 10px 2px 18px;
+                    color: #222;
+                    height: 100%;
+
+                    i {
+                      display: inline-block;
+                      width: 15px;
+                      height: 12px;
+                      margin-top: 4px;
+                      vertical-align: top;
+                      background: url('../assets/icons.png') no-repeat;
+                    }
+
+                    i.i-activity {
+                      background-position: -280px -1179px;
+                    }
+
+                    i.i-game {
+                      background-position: -279px -1241px;
+                    }
+
+                    i.i-h {
+                      background-position: -280px -1370px;
+                    }
+
+                    i.i-m {
+                      background-position: -280px -1433px;
+                    }
+
+                    b {
+                      font-size: 12px;
+                      font-weight: normal;
+                    }
+                  }
+
+                  &:hover {
+                    background-color: #e5e9ef;
+                    padding-left: 4px;
+                  }
+                }
+              }
+
+              .s-right {
+                position: absolute;
+                top: 20px;
+                right: 0;
+                display: block;
+                width: 240px;
+                height: 188px;
+                padding: 0 20px 0 19px;
+                border-left: 1px solid #e5e9ef;
+
+                a {
+                  display: inline-block;
+                  padding-left: 0;
+                  width: 100%;
+                  height: 100%;
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+              }
+            }
+
+            &:hover .second-menu {
+              display: block;
+            }
           }
         }
 
@@ -564,6 +709,7 @@ export default {
           }
 
           li.last-menu {
+            position: relative;
             margin-left: 14px;
             padding-left: 0;
             padding-right: 6px;
