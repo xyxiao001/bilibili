@@ -95,7 +95,24 @@
           <li class="none">
             <router-link :to="{path: '/'}" title="投稿" class="i-link">投 稿</router-link>
             <ul class="s-menu">
-
+              <li>
+                <a href="http://member.bilibili.com/v/video/submit.html" target="_blank">
+                  <i class="b-icon b-icon-vp"></i>
+                  <span>视频投稿</span>
+                </a>
+              </li>
+              <li>
+                <a href="http://member.bilibili.com/v/#!/article" target="_blank">
+                  <i class="b-icon b-icon-vm"></i>
+                  <span>投稿管理</span>
+                </a>
+              </li>
+              <li>
+                <a href="http://member.bilibili.com/v/l" target="_blank">
+                  <i class="b-icon b-icon-vc"></i>
+                  <span>创作中心</span>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -583,14 +600,77 @@ export default {
             margin-top: 16px;
             vertical-align: top;
           }
+
+          .s-menu {
+            position: absolute;
+            display: block;
+            top: 42px;
+            right: 0;
+            z-index: 15;
+            width: 216px;
+            border: 0;
+            transition: .2s;
+            border-radius: 0 0 4px 4px;
+            background-color: #fff;
+            box-shadow: rgba(0,0,0,0.16) 0 2px 4px;
+            overflow: hidden;
+            height: 64px;
+            padding-left: 0;
+            opacity: 0;
+            visibility: hidden;
+
+            li {
+              float: left;
+              width: 72px;
+              height: 64px;
+              transition: .1s;
+              padding: 0;
+
+              a {
+                display: block;
+                color: #f25d8e;
+                padding: 14px 12px 0 12px;
+                line-height: 1;
+                width: 52px;
+                height: 50px;
+                font-size: 12px;
+
+                i {
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  margin: 0 auto 8px;
+                  background: url('../assets/icons.png') no-repeat;
+                }
+
+                i.b-icon-vp {
+                  background-position: -471px -919px;
+                }
+
+                i.b-icon-vm {
+                  background-position: -471px -982px;
+                }
+
+                i.b-icon-vc {
+                  background-position: -471px -1753px;
+                }
+              }
+            }
+          }
         }
       }
+
       li:hover {
         background-color: rgba(255,255,255,0.2);
       }
 
       li.none:hover {
         background: none;
+      }
+
+      li.none:hover .s-menu {
+        opacity: 1;
+        visibility: visible;
       }
     }
   }
