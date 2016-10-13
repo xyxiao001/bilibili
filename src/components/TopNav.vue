@@ -655,6 +655,10 @@ export default {
                   background-position: -471px -1753px;
                 }
               }
+
+              &:hover {
+                background-color: #e5e9ef;
+              }
             }
           }
         }
