@@ -1,7 +1,16 @@
 <template>
   <div class="content">
-    <topNav></topNav>
-    <bgNav></bgNav>
+    <div class="b-page-header">
+      <topNav></topNav>
+      <bgNav></bgNav>
+    </div>
+    <div class="b-page-body">
+      <!-- 顶部 -->
+      <div class="container" id="index-top">
+        <div class="b-l"></div>
+        <div class="b-r"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -56,5 +65,28 @@ export default {
   }
   .hide {
     display: none;
+  }
+
+  .container {
+    width: 1160px;
+    margin: auto;
+
+    #index-top {
+      .b-l {
+        float: left;
+        width: 440px;
+      }
+
+      .b-r {
+        float: right;
+        width: 720px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    .container {
+      width: 980px;
+    }
   }
 </style>
