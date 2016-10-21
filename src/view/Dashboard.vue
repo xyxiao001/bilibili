@@ -7,7 +7,9 @@
     <div class="b-page-body">
       <!-- 顶部 -->
       <div class="container" id="index-top">
-        <div class="b-l"></div>
+        <div class="b-l">
+          <Mcarousel></Mcarousel>
+        </div>
         <div class="b-r"></div>
       </div>
     </div>
@@ -17,6 +19,7 @@
 <script>
 import TopNav from '../components/TopNav'
 import BgNav from '../components/BgNav'
+import Mcarousel from '../components/Mcarousel'
 
 export default {
   data () {
@@ -25,7 +28,8 @@ export default {
   },
   components: {
     TopNav,
-    BgNav
+    BgNav,
+    Mcarousel
   },
   methods: {
   },
@@ -69,18 +73,17 @@ export default {
 
   .container {
     width: 1160px;
+    clear: both;
     margin: auto;
 
-    #index-top {
-      .b-l {
-        float: left;
-        width: 440px;
-      }
+    .b-l {
+      float: left;
+      width: 440px;
+    }
 
-      .b-r {
-        float: right;
-        width: 720px;
-      }
+    .b-r {
+      float: right;
+      width: 720px;
     }
   }
 
