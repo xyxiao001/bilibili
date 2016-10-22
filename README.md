@@ -1,4 +1,5 @@
-#  bilibili vue
+#  bilibili vue  
+##使用vue2.0 scss es6 vue-router2.0
 
 # 本地运行步骤
 ## 首先安装git
