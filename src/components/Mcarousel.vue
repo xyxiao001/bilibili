@@ -1,6 +1,11 @@
 <template>
   <div class="t-carousel">
-    <ul ref="carousel" class="carousel">
+    <ul
+      ref="carousel"
+      class="carousel"
+      :style="{
+        'transform': 'translate3d(' + -(index * 20) + '%, 0, 0)'
+      }">
       <li v-for="carousel in carousels">
         <a :href="carousel.url" target="_blank">
           <img :src="carousel.img">
@@ -14,8 +19,9 @@
     <ul id="topic_slider" class="slider-bar" ref="slider">
       <li
         bar="bar"
-        v-for="(carousel, index) in carousels"
-        @click="go(index)"
+        v-for="(carousel, $index) in carousels"
+        :class="{'on': $index === index}"
+        @click="go($index)"
         @mouseover="end"
         @mouseout="start">
       </li>
@@ -58,14 +64,6 @@ export default {
       ]
     }
   },
-  watch: {
-    index () {
-      this.$refs.carousel.style.transform = 'translate3d(' + -(this.index * 20) + '%, 0, 0)'
-      this.$refs.slider.childNodes.forEach((val, index) => {
-        index === this.index ? val.className = 'on' : val.className = ''
-      })
-    }
-  },
   methods: {
     go (i) {
       this.index = i
@@ -83,8 +81,6 @@ export default {
   mounted () {
     // 启动定时器
     this.start()
-    // 设置第一个li为on
-    this.$refs.slider.firstChild.className = 'on'
   },
   // 页面切换
   destroyed () {
@@ -103,7 +99,7 @@ export default {
     ul.carousel {
       width: 500%;
       height: 100%;
-      transition: transform .5s cubic-bezier(.86,0,.07,1),-webkit-transform .5s cubic-bezier(.86,0,.07,1);
+      transition: transform .3s cubic-bezier(.86,0,.07,1),-webkit-transform .3s cubic-bezier(.86,0,.07,1);
       transform: translate3d(0, 0, 0);
 
       li {
