@@ -35,42 +35,42 @@
           <li class="last-menu">
             <router-link :to="{path: '/'}" class="square">
               <span>广场</span>
-              <div class="second-menu">
-                <ul>
-                  <li>
-                    <a href="http://activity.bilibili.com" target="_blank">
-                      <i class="i-activity"></i>
-                      <b>活动中心</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://game.bilibili.com" target="_blank">
-                      <i class="i-game"></i>
-                      <b>游戏中心</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://h.bilibili.com" target="_blank">
-                      <i class="i-h"></i>
-                      <b>画友</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.bilibili.com/mango" target="_blank">
-                      <i class="i-m"></i>
-                      <b>芒果TV</b>
-                    </a>
-                  </li>
-                </ul>
-                <div class="s-right">
-                  <div class="item">
-                    <a href="http://www.bilibili.com/event" target="_blank">
-                      <img src="http://i0.hdslb.com/group1/M00/B7/C6/oYYBAFefJyWAdVAcAAD9KmVEAFw381.jpg">
-                    </a>
-                  </div>
+            </router-link>
+            <div class="second-menu">
+              <ul>
+                <li>
+                  <a href="http://activity.bilibili.com" target="_blank">
+                    <i class="i-activity"></i>
+                    <b>活动中心</b>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://game.bilibili.com" target="_blank">
+                    <i class="i-game"></i>
+                    <b>游戏中心</b>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://h.bilibili.com" target="_blank">
+                    <i class="i-h"></i>
+                    <b>画友</b>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.bilibili.com/mango" target="_blank">
+                    <i class="i-m"></i>
+                    <b>芒果TV</b>
+                  </a>
+                </li>
+              </ul>
+              <div class="s-right">
+                <div class="item">
+                  <a href="http://www.bilibili.com/event" target="_blank">
+                    <img src="http://i0.hdslb.com/group1/M00/B7/C6/oYYBAFefJyWAdVAcAAD9KmVEAFw381.jpg">
+                  </a>
                 </div>
               </div>
-            </router-link>
+            </div>
           </li>
           <li class="last-menu">
             <router-link :to="{path: '/'}" class="live">
