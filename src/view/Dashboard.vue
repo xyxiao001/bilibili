@@ -90,6 +90,10 @@ export default {
   @media screen and (max-width: 1400px) {
     .container {
       width: 980px;
+
+      .b-r {
+        width: 540px;
+      }
     }
   }
 </style>
