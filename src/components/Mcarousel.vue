@@ -1,7 +1,6 @@
 <template>
   <div class="t-carousel">
     <ul
-      ref="carousel"
       class="carousel"
       :style="{
         'transform': 'translate3d(' + -(index * 20) + '%, 0, 0)'
@@ -16,7 +15,7 @@
     <a class="more-topic" href="http://www.bilibili.com/topic/integrated-1.html" target="_blank">
       更多<i class="b-icon b-icon-arrow-r"></i>
     </a>
-    <ul id="topic_slider" class="slider-bar" ref="slider">
+    <ul class="slider-bar">
       <li
         bar="bar"
         v-for="(carousel, $index) in carousels"
