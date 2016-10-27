@@ -211,6 +211,7 @@ export default {
       z-index: 99;
       text-align: center;
       display: none;
+      user-select: none;
     }
 
     .next {
@@ -231,6 +232,7 @@ export default {
       z-index: 99;
       text-align: center;
       display: none;
+      user-select: none;
     }
 
     &:hover .prev, &:hover .next {
