@@ -10,7 +10,9 @@
         <div class="b-l">
           <Mcarousel></Mcarousel>
         </div>
-        <div class="b-r"></div>
+        <div class="b-r">
+          <Lcarousel></Lcarousel>
+        </div>
       </div>
     </div>
   </div>
@@ -20,6 +22,7 @@
 import TopNav from '../components/TopNav'
 import BgNav from '../components/BgNav'
 import Mcarousel from '../components/Mcarousel'
+import Lcarousel from '../components/Lcarousel'
 
 export default {
   data () {
@@ -29,7 +32,8 @@ export default {
   components: {
     TopNav,
     BgNav,
-    Mcarousel
+    Mcarousel,
+    Lcarousel
   },
   methods: {
   },
