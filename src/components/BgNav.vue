@@ -658,6 +658,7 @@ export default {
               transition: .2s;
               transition-property: opacity;
               *display: none;
+              z-index: 999;
 
               .mobile-p-qrcode {
                 position: absolute;
