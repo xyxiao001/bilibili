@@ -14,6 +14,16 @@
           <Lcarousel></Lcarousel>
         </div>
       </div>
+
+      <!-- 推荐 -->
+      <div class="container" id="promote">
+        <div class="b-l">
+          left
+        </div>
+        <div class="b-right">
+          right
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -71,6 +81,7 @@ export default {
   li {
     list-style-type: none;
   }
+
   .hide {
     display: none;
   }
@@ -96,12 +107,29 @@ export default {
     }
   }
 
+  #promote {
+    .b-l {
+      width: 880px;
+    }
+
+    .b-r {
+      min-height: 195px;
+      height: 195px;
+    }
+  }
+
   @media screen and (max-width: 1400px) {
     .container {
       width: 980px;
 
       .b-r {
         width: 540px;
+      }
+    }
+
+    #promote {
+      .b-l {
+        width: 700px;
       }
     }
   }
