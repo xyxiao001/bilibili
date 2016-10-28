@@ -83,7 +83,7 @@ export default {
   },
   // 页面切换
   destroyed () {
-    clearInterval(this.set)
+    this.end()
   }
 }
 </script>
