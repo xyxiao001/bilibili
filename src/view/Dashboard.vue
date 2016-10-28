@@ -75,6 +75,11 @@ export default {
     display: none;
   }
 
+  #index-top {
+    height: 240px;
+    margin-bottom: 20px;
+  }
+
   .container {
     width: 1160px;
     clear: both;

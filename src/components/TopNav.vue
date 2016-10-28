@@ -221,7 +221,7 @@ export default {
         filter: blur(5px);
         filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5,MakeShadow=false);
         z-index: 50;
-        background: url('../assets/bg2.jpg') no-repeat center 0;
+        background: url('../assets/bg.png') no-repeat center 0;
         background-position: center 0!important;
         background-repeat: no-repeat;
       }

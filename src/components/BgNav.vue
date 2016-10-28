@@ -263,7 +263,7 @@ export default {
     left: 0;
     width: 100%;
     height: 232px;
-    background: url('../assets/bg2.jpg') no-repeat center -10px;
+    background: url('../assets/bg.png') no-repeat center -10px;
     position: relative;
     margin: -42px auto 0;
     cursor: pointer;
@@ -285,7 +285,7 @@ export default {
         top: 55px;
         background: transparent no-repeat left center;
         z-index: 100;
-        background-image: url('../assets/logo2.png');
+        background-image: url('../assets/logo.png');
       }
 
       .banner-title {
