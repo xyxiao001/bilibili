@@ -531,6 +531,8 @@ export default {
               height: 188px;
               box-shadow: rgba(0,0,0,0.16) 0 2px 4px;
               border-radius: 0 0 4px 4px;
+              background-color: white;
+              z-index: 100;
 
               ul {
                 width: 107px;
