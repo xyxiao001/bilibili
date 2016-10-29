@@ -1,7 +1,7 @@
 <template lang="html">
   <nav class="top-nav">
     <div class="bg">
-      <div class="bg-ma"></div>
+      <div class="bg-ma" :style="{'background-image': 'url('+ this.bg + ')'}"></div>
       <div class="bg-model"></div>
     </div>
     <div class="nav-content">
@@ -163,7 +163,8 @@ export default {
           text: '幻影纹章',
           img: 'http://i0.hdslb.com/bfs/game/59d24a99226e9d1d273708b1a78452c811bf0aa9.png'
         }
-      ]
+      ],
+      bg: 'http://i0.hdslb.com/bfs/archive/453f101fac55d67988f0648ede2edb204afa1c36.png'
     }
   },
   methods: {
@@ -183,12 +184,6 @@ export default {
       })
       return has
     }
-  },
-  // 页面进入执行
-  mounted () {
-  },
-  // 页面切换
-  destroyed () {
   }
 }
 </script>
@@ -221,7 +216,7 @@ export default {
         filter: blur(5px);
         filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5,MakeShadow=false);
         z-index: 50;
-        background: url('../assets/bg.png') no-repeat center 0;
+        background: white no-repeat center 0;
         background-position: center 0!important;
         background-repeat: no-repeat;
       }

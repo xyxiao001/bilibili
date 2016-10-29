@@ -1,8 +1,11 @@
 <template lang="html">
-  <div class="header">
+  <div class="header" :style="{'background-image': 'url('+ this.bg + ')'}">
     <div class="h-content">
       <div class="h-info">
-        <router-link :to="{path: '/'}" class="logo"></router-link>
+        <router-link :to="{path: '/'}" class="logo"
+         :style="{
+            'background-image': 'url(' + this.logo + ')'
+          }"></router-link>
         <a class="banner-title">哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili</a>
         <div class="search">
           <router-link :to="{path: '/'}" class="link-ranking">
@@ -247,7 +250,9 @@ export default {
         { url: '/', text: '电子竞技' },
         { url: '/', text: '手游直播' },
         { url: '/', text: '放映厅' }
-      ]
+      ],
+      logo: 'http://i0.hdslb.com/bfs/archive/e090c0fc50ddbe6140dad670292970b116595520.png',
+      bg: 'http://i0.hdslb.com/bfs/archive/453f101fac55d67988f0648ede2edb204afa1c36.png'
     }
   },
   components: {
@@ -263,7 +268,7 @@ export default {
     left: 0;
     width: 100%;
     height: 232px;
-    background: url('../assets/bg.png') no-repeat center -10px;
+    background: white no-repeat center -10px;
     position: relative;
     margin: -42px auto 0;
     cursor: pointer;
@@ -285,7 +290,6 @@ export default {
         top: 55px;
         background: transparent no-repeat left center;
         z-index: 100;
-        background-image: url('../assets/logo.png');
       }
 
       .banner-title {
