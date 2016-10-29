@@ -241,7 +241,7 @@ export default {
             display: none;
             width: 40px;
             height: 24px;
-            background: url(../assets/icons.png) no-repeat;
+            background: url(http://static.hdslb.com/images/base/icons.png) no-repeat;
             background-position: -849px -212px;
             z-index: 5;
             pointer-events: none;
@@ -278,7 +278,7 @@ export default {
           }
 
           .play-icon {
-            background: url(../assets/icons2.png) 0 -547px no-repeat;
+            background: url(http://static.hdslb.com/images/v3images/icons2.png) 0 -547px no-repeat;
             width: 40px;
             height: 40px;
             position: absolute;
@@ -368,7 +368,7 @@ export default {
       background-position: 6px -1211px;
       padding: 13px 5px 13px 10px;
       background-color: rgba(0,0,0,0.6);
-      background-image: url(../assets/icons2.png);
+      background-image: url(http://static.hdslb.com/images/v3images/icons2.png);
       background-repeat: no-repeat;
       width: 20px;
       top: 50%;
@@ -389,7 +389,7 @@ export default {
       background-position: 6px -1211px;
       padding: 13px 5px 13px 10px;
       background-color: rgba(0,0,0,0.6);
-      background-image: url(../assets/icons2.png);
+      background-image: url(http://static.hdslb.com/images/v3images/icons2.png);
       background-repeat: no-repeat;
       width: 20px;
       top: 50%;

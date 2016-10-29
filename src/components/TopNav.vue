@@ -523,7 +523,7 @@ export default {
 
           &:first-child {
             padding: 0;
-            background-image: url('../assets/icons.png');
+            background-image: url('http://static.hdslb.com/images/base/icons.png');
             background-repeat: no-repeat;
             background-position: -910px -74px;
             width: 70px;
@@ -635,7 +635,7 @@ export default {
                   width: 20px;
                   height: 20px;
                   margin: 0 auto 8px;
-                  background: url('../assets/icons.png') no-repeat;
+                  background: url('http://static.hdslb.com/images/base/icons.png') no-repeat;
                 }
 
                 i.b-icon-vp {

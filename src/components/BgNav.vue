@@ -338,7 +338,7 @@ export default {
             padding-left: 26px;
             color: #f25d8e;
             display: inline-block;
-            background: url('../assets/icons.png') -659px -655px no-repeat;
+            background: url('http://static.hdslb.com/images/base/icons.png') -659px -655px no-repeat;
           }
         }
 
@@ -376,7 +376,7 @@ export default {
           min-width: 0;
           cursor: pointer;
           height: 32px;
-          background: url('../assets/icons.png') -653px -720px;
+          background: url('http://static.hdslb.com/images/base/icons.png') -653px -720px;
           margin: 0;
           padding: 0;
           border: 0;
@@ -384,7 +384,7 @@ export default {
         }
 
         button:hover {
-          background: url('../assets/icons.png') -718px -720px;
+          background: url('http://static.hdslb.com/images/base/icons.png') -718px -720px;
         }
       }
 
@@ -454,7 +454,7 @@ export default {
             }
 
             .dashboard {
-              background: url('../assets/icons.png') -658px -1170px no-repeat;
+              background: url('http://static.hdslb.com/images/base/icons.png') -658px -1170px no-repeat;
             }
           }
 
@@ -516,11 +516,11 @@ export default {
             }
 
             a.square {
-              background: url('../assets/icons.png') -664px -904px no-repeat;
+              background: url('http://static.hdslb.com/images/base/icons.png') -664px -904px no-repeat;
             }
 
             a.live {
-              background: url('../assets/icons.png') -664px -518px no-repeat;
+              background: url('http://static.hdslb.com/images/base/icons.png') -664px -518px no-repeat;
             }
 
             .second-menu {
@@ -575,7 +575,7 @@ export default {
                       height: 12px;
                       margin-top: 4px;
                       vertical-align: top;
-                      background: url('../assets/icons.png') no-repeat;
+                      background: url('http://static.hdslb.com/images/base/icons.png') no-repeat;
                     }
 
                     i.i-activity {

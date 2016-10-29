@@ -172,7 +172,7 @@ export default {
         width: 18px;
         height: 18px;
         margin: 2px 2px;
-        background: url(../assets/icons.png) -855px -790px no-repeat;
+        background: url(http://static.hdslb.com/images/base/icons.png) -855px -790px no-repeat;
 
         &:hover {
           background-position: -919px -790px;

@@ -52,7 +52,7 @@ export default {
         overflow: hidden;
         font-size: 12px;
         padding: 5px 15px 5px 25px;
-        background: url(../assets/icons2.png) no-repeat 12px -1613px;
+        background: url(http://static.hdslb.com/images/v3images/icons2.png) no-repeat 12px -1613px;
         color: #222;
         white-space: nowrap;
         transition: .2s all;
@@ -77,7 +77,7 @@ export default {
           display: block;
           width: 15px;
           height: 18px;
-          background: url(../assets/icons2.png) no-repeat 0 -1581px;
+          background: url(http://static.hdslb.com/images/v3images/icons2.png) no-repeat 0 -1581px;
           opacity: 0;
           transition: .2s all;
           filter: alpha(opacity=0);
