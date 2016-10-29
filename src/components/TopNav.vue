@@ -575,7 +575,7 @@ export default {
               width: 58px;
               position: relative;
               z-index: 10;
-              background: url('../assets/b-post.png') center center no-repeat;
+              background: url('http://static.hdslb.com/images/base/b-post.png') center center no-repeat;
               height: 48px;
               border-radius: 0 0 5px 5px;
               color: #fff!important;

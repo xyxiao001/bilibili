@@ -83,7 +83,7 @@
           </li>
         </ul>
         <div class="right-menu">
-          <img src="../assets/r1.gif" alt="动起来" />
+          <img src="http://i0.hdslb.com/icon/575cd42b00dbd63236116cb56ae44641.gif" alt="动起来" />
           <router-link :to="{path: '/'}" class="phone">
             <div class="mobile-p-box"><div class="mobile-p-qrcode"></div></div>
           </router-link>
@@ -649,7 +649,7 @@ export default {
             width: 58px;
             height: 45px;
             margin: 2px 0;
-            background: url(../assets/app-link.png) center center no-repeat;
+            background: url(http://static.hdslb.com/images/base/app-link.png) center center no-repeat;
 
             .mobile-p-box {
               position: absolute;
@@ -659,7 +659,7 @@ export default {
               overflow: hidden;
               width: 259px;
               height: 174px;
-              background: url(../assets/app-box.png) center center no-repeat;
+              background: url(http://static.hdslb.com/images/base/app-box.png) center center no-repeat;
               opacity: 0;
               transition: .2s;
               transition-property: opacity;
@@ -672,12 +672,12 @@ export default {
                 left: 80px;
                 width: 100px;
                 height: 100px;
-                background: url(../assets/app-qrcode.png) center center no-repeat;
+                background: url(http://static.hdslb.com/images/base/app-qrcode.png) center center no-repeat;
               }
             }
 
             &:hover {
-              background: url(../assets/app-link-hover.png) center center no-repeat;
+              background: url(http://static.hdslb.com/images/base/app-link-hover.png) center center no-repeat;
             }
 
             &:hover .mobile-p-box {
