@@ -8,11 +8,11 @@
           }"></router-link>
         <a class="banner-title" :href="url" target="_blank">{{ title }}</a>
         <div class="search">
-          <router-link :to="{path: '/'}" class="link-ranking">
+          <a href="http://www.bilibili.com/ranking" target="_blank" class="link-ranking">
             <span>排行榜</span>
-          </router-link>
+          </a>
           <form>
-            <input type="text" name="search" placeholder="如何在MC中还原《三体》原著">
+            <input type="text" name="search" autocomplete="off" placeholder="如何在MC中还原《三体》原著">
             <button type="button"></button>
           </form>
         </div>
@@ -349,6 +349,10 @@ export default {
           width: 68px;
           transition: .2s background-color;
 
+          &:hover {
+            background-color: white;
+          }
+
           span {
             font-size: 12px;
             padding-left: 26px;
@@ -401,6 +405,10 @@ export default {
 
         button:hover {
           background: url('http://static.hdslb.com/images/base/icons.png') -718px -720px;
+        }
+
+        form:hover {
+          background-color: white;
         }
       }
 
