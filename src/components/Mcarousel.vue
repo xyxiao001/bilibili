@@ -9,7 +9,6 @@
         <a :href="carousel.url" target="_blank">
           <img :src="carousel.pic">
         </a>
-        <a class="show-info" :href="carousel.url" target="_blank">{{ carousel.name }}</a>
       </li>
     </ul>
     <a class="more-topic" href="http://www.bilibili.com/topic/integrated-1.html" target="_blank">
@@ -25,6 +24,7 @@
         @mouseout="start">
       </li>
     </ul>
+    <div class="s-bottom"><a class="show-info" :href="carousels[index].url" target="_blank">{{ carousels[index].name }}</a></div>
   </div>
 </template>
 
@@ -82,7 +82,7 @@ export default {
     ul.carousel {
       width: 500%;
       height: 100%;
-      transition: transform .3s cubic-bezier(.86,0,.07,1),-webkit-transform .3s cubic-bezier(.86,0,.07,1);
+      transition: transform .3s cubic-bezier(.86,0,.07,1);
       transform: translate3d(0, 0, 0);
 
       li {
@@ -97,17 +97,6 @@ export default {
           width: 100%;
           height: 80%;
           color: white;
-        }
-
-        a.show-info{
-          position: absolute;
-          top: 84%;
-          left: 20px;
-          width: auto;
-          line-height: 35px;
-          font-size: 14px;
-          height: 35px;
-          cursor: pointer;
         }
 
         a.show-info:hover {
@@ -149,6 +138,7 @@ export default {
       bottom: 5px;
       overflow: hidden;
       padding: 2px 5px;
+      z-index: 2;
 
       li {
         float: left;
@@ -170,6 +160,30 @@ export default {
           background-position: -855px -727px;
         }
       }
+    }
+  }
+
+  .s-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: #000;
+    background: linear-gradient(transparent,rgba(0,0,0,0.1) 20%,rgba(0,0,0,0.2) 35%,rgba(0,0,0,0.5) 65%,rgba(0,0,0,0.66));
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+
+    a.show-info{
+      position: absolute;
+      color: white;
+      left: 20px;
+      width: auto;
+      line-height: 35px;
+      font-size: 14px;
+      height: 35px;
+      cursor: pointer;
+      z-index: 99;
     }
   }
 </style>
