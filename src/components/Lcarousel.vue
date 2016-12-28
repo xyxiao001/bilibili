@@ -21,7 +21,7 @@
       </li>
     </ul>
     <div class="prev" @click="now = now > 0 ? now -= 1 : now = 2">{{ this.pre = this.now === 0 ? '昨日' : this.now === 1 ? '三日' : '一周'}}</div>
-    <div class="next" @click="now = now < 2 ? now += 1 : now = 0">{{ this.next = this.now === 0 ? '下周' : this.now === 1 ? '昨日' : '三日'}}</div>
+    <div class="next" @click="now = now < 2 ? now += 1 : now = 0">{{ this.next = this.now === 0 ? '一周' : this.now === 1 ? '昨日' : '三日'}}</div>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
   data () {
     return {
       // 昨日2 一周1 三日0
-      now: 1,
+      now: 0,
       pre: '',
       next: '',
       lists: [
