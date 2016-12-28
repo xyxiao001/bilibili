@@ -1,14 +1,14 @@
 <template>
   <div class="content">
     <div class="b-page-header">
-      <topNav></topNav>
-      <bgNav></bgNav>
+      <topNav :bg="navs.pic" :light="navs.style"></topNav>
+      <bgNav :logo="navs.litpic" :bg="navs.pic" :title="navs.name" :url="navs.url"></bgNav>
     </div>
     <div class="b-page-body">
       <!-- 顶部 -->
       <div class="container" id="index-top">
         <div class="b-l">
-          <Mcarousel></Mcarousel>
+          <Mcarousel :carousels="carousels"></Mcarousel>
         </div>
         <div class="b-r">
           <Lcarousel></Lcarousel>
@@ -37,6 +37,14 @@ import Lcarousel from '../components/Lcarousel'
 export default {
   data () {
     return {
+      carousels: [],
+      navs: {
+        name: '',
+        litpic: '',
+        pic: '',
+        url: '',
+        style: 0
+      }
     }
   },
   components: {
@@ -46,9 +54,35 @@ export default {
     Lcarousel
   },
   methods: {
+    mcarousel () {
+      this.$http.jsonp('http://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=0&id=23').then((response) => {
+        this.carousels = response.body.data
+      }, (response) => {
+        console.log('请求失败!')
+      })
+    },
+    nav () {
+      this.$http.jsonp('http://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=0&id=142').then((response) => {
+        this.navs = response.body.data[0]
+      }, (response) => {
+        console.log('请求失败!')
+      })
+    },
+    placeholder () {
+      this.$http.jsonp('http://www.bilibili.com/widget/getSearchDefaultWords').then((response) => {
+        console.log(response)
+      }, (response) => {
+        console.log('请求失败!')
+      })
+    }
   },
   // 页面进入执行
   mounted () {
+    // 请求轮播图
+    this.mcarousel()
+    // 输入框的placeholder 导航栏图片和文字
+    this.nav()
+    // this.placeholder()
   },
   // 页面切换
   destroyed () {

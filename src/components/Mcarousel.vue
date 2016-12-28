@@ -7,9 +7,9 @@
       }">
       <li v-for="carousel in carousels">
         <a :href="carousel.url" target="_blank">
-          <img :src="carousel.img">
+          <img :src="carousel.pic">
         </a>
-        <a class="show-info" :href="carousel.url" target="_blank">{{ carousel.info }}</a>
+        <a class="show-info" :href="carousel.url" target="_blank">{{ carousel.name }}</a>
       </li>
     </ul>
     <a class="more-topic" href="http://www.bilibili.com/topic/integrated-1.html" target="_blank">
@@ -33,34 +33,15 @@ export default {
   data () {
     return {
       index: 0,
-      set: '',
-      carousels: [
-        {
-          url: 'http://www.bilibili.com/topic/1574.html',
-          img: 'http://i0.hdslb.com/bfs/archive/7427bb6a8e285750788e531eda2c28f6c6bbc3ca.jpg@.webp',
-          info: 'bilibili2016年7月新番完结报'
-        },
-        {
-          url: 'http://e.cn.miaozhen.com/r/k=2031575&p=736P9&ae=1001381&dx=__IPDX__&rt=2&ns=__IP__&ni=__IESID__&v=__LOC__&xa=__ADPLATFORM__&ro=sm&vo=33904ba19&vr=2&o=http%3A%2F%2Fwww.bilibili.com%2Fblackboard%2Factivity-KFC161019.html',
-          img: 'http://i0.hdslb.com/bfs/archive/22cdc2556a0a13d47954b3acc0b975590b23dae3.jpg@.webp',
-          info: '搞怪小剧场'
-        },
-        {
-          url: 'http://www.bilibili.com/video/av6777232/',
-          img: 'http://i0.hdslb.com/bfs/archive/d540a49da5871cd6997c1fb63e6ce8a4e5e87433.jpg@.webp',
-          info: '【故事王 StoryMan】总决赛'
-        },
-        {
-          url: 'http://www.bilibili.com/topic/1579.html',
-          img: 'http://i0.hdslb.com/bfs/archive/ad7039bfcd8efcf939871149d667cd2e4c72ecd9.jpg@.webp',
-          info: '纪念红军长征胜利80周年'
-        },
-        {
-          url: 'http://www.bilibili.com/html/bili-research-001.html',
-          img: 'http://i0.hdslb.com/bfs/archive/466ee59ffc1d27837dde5b32ca6d2fc938576f32.png@.webp',
-          info: '快戳进来=￣ω￣='
-        }
-      ]
+      set: ''
+    }
+  },
+  props: {
+    carousels: {
+      type: Array,
+      default: () => {
+        return []
+      }
     }
   },
   methods: {
@@ -94,6 +75,9 @@ export default {
     width: 440px;
     height: 220px;
     overflow: hidden;
+    background: url(http://static.hdslb.com/images/v3images/img_loading.png) no-repeat;
+    background-size: auto;
+    background-position: center;
 
     ul.carousel {
       width: 500%;

@@ -1,5 +1,5 @@
 <template lang="html">
-  <nav class="top-nav">
+  <nav class="top-nav" :class="lights">
     <div class="bg">
       <div class="bg-ma" :style="{'background-image': 'url('+ this.bg + ')'}"></div>
       <div class="bg-model"></div>
@@ -163,8 +163,23 @@ export default {
           text: '幻影纹章',
           img: 'http://i0.hdslb.com/bfs/game/59d24a99226e9d1d273708b1a78452c811bf0aa9.png'
         }
-      ],
-      bg: 'http://i0.hdslb.com/bfs/archive/453f101fac55d67988f0648ede2edb204afa1c36.png'
+      ]
+    }
+  },
+  props: {
+    bg: {
+      type: String,
+      default: ''
+    },
+    light: {
+      type: Number,
+      default: 0
+    }
+  },
+  computed: {
+    lights () {
+      var top = this.light === 0 ? 'white' : 'black'
+      return top
     }
   },
   methods: {
@@ -250,7 +265,7 @@ export default {
           position: relative;
           float: left;
           line-height: 42px;
-          transition: all 0.3s ease;
+          transition: color 0.3s ease;
 
           .show-content {
             display: none;
@@ -671,6 +686,26 @@ export default {
         opacity: 1;
         visibility: visible;
       }
+    }
+  }
+
+  .black {
+    color: white;
+    .bg .bg-model {
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .nav-content .nav li:first-child {
+      background-position: -845px -74px;
+    }
+
+    .nav-content .nav li a {
+      color: white;
+      font-size: 12px;
+    }
+
+    .nav-content .user-box ul li a {
+     color: white;
     }
   }
 

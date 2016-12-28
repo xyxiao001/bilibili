@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import App from './components/App'
-import Store from './vuex/store'
-
 import Dashboard from './view/Dashboard'
 Vue.use(VueRouter)
+Vue.use(VueResource)
 
 const router = new VueRouter({
   mode: 'history',
@@ -16,7 +16,6 @@ const router = new VueRouter({
 })
 
 new Vue({
-  Store,
   router,
   ...App
 }).$mount('#app')

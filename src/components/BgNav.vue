@@ -6,7 +6,7 @@
          :style="{
             'background-image': 'url(' + this.logo + ')'
           }"></router-link>
-        <a class="banner-title">哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili</a>
+        <a class="banner-title" :href="url" target="_blank">{{ title }}</a>
         <div class="search">
           <router-link :to="{path: '/'}" class="link-ranking">
             <span>排行榜</span>
@@ -250,9 +250,25 @@ export default {
         { url: '/', text: '电子竞技' },
         { url: '/', text: '手游直播' },
         { url: '/', text: '放映厅' }
-      ],
-      logo: 'http://i0.hdslb.com/bfs/archive/e090c0fc50ddbe6140dad670292970b116595520.png',
-      bg: 'http://i0.hdslb.com/bfs/archive/453f101fac55d67988f0648ede2edb204afa1c36.png'
+      ]
+    }
+  },
+  props: {
+    logo: {
+      type: String,
+      default: ''
+    },
+    bg: {
+      type: String,
+      default: ''
+    },
+    title: {
+      type: String,
+      default: 'bilibili'
+    },
+    url: {
+      type: String,
+      default: ''
     }
   },
   components: {
