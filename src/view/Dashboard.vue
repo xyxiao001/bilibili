@@ -55,21 +55,21 @@ export default {
   },
   methods: {
     mcarousel () {
-      this.$http.jsonp('http://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=0&id=23').then((response) => {
+      this.$http.jsonp('https://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=0&id=23').then((response) => {
         this.carousels = response.body.data
       }, (response) => {
         console.log('请求失败!')
       })
     },
     nav () {
-      this.$http.jsonp('http://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=0&id=142').then((response) => {
+      this.$http.jsonp('https://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=0&id=142').then((response) => {
         this.navs = response.body.data[0]
       }, (response) => {
         console.log('请求失败!')
       })
     },
     placeholder () {
-      this.$http.jsonp('http://www.bilibili.com/widget/getSearchDefaultWords').then((response) => {
+      this.$http.jsonp('https://www.bilibili.com/widget/getSearchDefaultWords').then((response) => {
         console.log(response)
       }, (response) => {
         console.log('请求失败!')

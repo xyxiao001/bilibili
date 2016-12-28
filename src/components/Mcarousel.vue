@@ -24,7 +24,7 @@
         @mouseout="start">
       </li>
     </ul>
-    <div class="s-bottom"><a class="show-info" :href="carousels[index].url" target="_blank">{{ carousels[index].name }}</a></div>
+    <div class="s-bottom"><a class="show-info" :href="url" target="_blank">{{ name }}</a></div>
   </div>
 </template>
 
@@ -33,14 +33,31 @@ export default {
   data () {
     return {
       index: 0,
-      set: ''
+      set: '',
+      url: '',
+      name: ''
+    }
+  },
+  watch: {
+    index () {
+      this.name = this.carousels[this.index].name
+      this.url = this.carousels[this.index].url
+    },
+    carousels () {
+      this.name = this.carousels[this.index].name
+      this.url = this.carousels[this.index].url
     }
   },
   props: {
     carousels: {
       type: Array,
       default: () => {
-        return []
+        return [
+          {
+            name: '',
+            url: ''
+          }
+        ]
       }
     }
   },
@@ -53,7 +70,9 @@ export default {
     },
     start () {
       this.set = setInterval(() => {
-        this.index = this.index >= 4 ? 0 : this.index += 1
+        if (this.carousels.length > 0) {
+          this.index = this.index >= 4 ? 0 : this.index += 1
+        }
       }, 5000)
     }
   },
