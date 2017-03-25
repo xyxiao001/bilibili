@@ -83,10 +83,8 @@
           </li>
         </ul>
         <div class="right-menu">
+          <a class="black-house" href="//www.bilibili.com/blackroom" target="_blank"><em>小黑屋</em></a>
           <img src="http://i0.hdslb.com/icon/575cd42b00dbd63236116cb56ae44641.gif" alt="动起来" />
-          <router-link :to="{path: '/'}" class="phone">
-            <div class="mobile-p-box"><div class="mobile-p-qrcode"></div></div>
-          </router-link>
         </div>
       </div>
     </div>
@@ -122,6 +120,19 @@ export default {
             { url: '/', text: '官方延伸' },
             { url: '/', text: '新番时间表' },
             { url: '/', text: '番剧索引' }
+          ]
+        },
+        {
+          url: '/',
+          text: '国创',
+          num: 58,
+          items: [
+            { url: '/', text: '国产动画' },
+            { url: '/', text: '国产原创相关' },
+            { url: '/', text: '布袋戏' },
+            { url: '/', text: '资讯' },
+            { url: '/', text: '新番时间表' },
+            { url: '/', text: '国产动画索引' }
           ]
         },
         {
@@ -666,48 +677,26 @@ export default {
           margin-right: -1px;
           height: 50px;
 
-          a.phone {
+          .black-house {
+            float: left;
             position: relative;
-            overflow: visible;
-            display: inline-block;
-            width: 58px;
-            height: 45px;
-            margin: 2px 0;
-            background: url(http://static.hdslb.com/images/base/app-link.png) center center no-repeat;
+            font-size: 14px;
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            margin-right: 13px;
 
-            .mobile-p-box {
-              position: absolute;
-              top: 44px;
-              right: -20px;
-              visibility: hidden;
-              overflow: hidden;
-              width: 259px;
-              height: 174px;
-              background: url(http://static.hdslb.com/images/base/app-box.png) center center no-repeat;
-              opacity: 0;
-              transition: .2s;
-              transition-property: opacity;
-              *display: none;
-              z-index: 999;
-
-              .mobile-p-qrcode {
-                position: absolute;
-                top: 30px;
-                left: 80px;
-                width: 100px;
-                height: 100px;
-                background: url(http://static.hdslb.com/images/base/app-qrcode.png) center center no-repeat;
-              }
-            }
-
-            &:hover {
-              background: url(http://static.hdslb.com/images/base/app-link-hover.png) center center no-repeat;
-            }
-
-            &:hover .mobile-p-box {
-              visibility: visible;
-              opacity: 1;
-              *display: block;
+            em {
+              display: inline-block;
+              padding-left: 22px;
+              padding-right: 0;
+              padding-top: 0;
+              height: 50px;
+              line-height: 50px;
+              font-style: normal;
+              margin: 0!important;
+              background: url(http://static.hdslb.com/images/base/icons.png) -727px -519px no-repeat;
+              font-size: 16px;
             }
           }
         }
@@ -728,20 +717,22 @@ export default {
 
         ul {
           li {
-            padding-right: 12px;
+            padding-right: 9px;
           }
 
           li.other-menu {
-            width: 50px;
+            width: 48px;
 
             a {
-              width: 50px;
+              width: 48px;
+              height: 48px;
             }
           }
 
           li.last-menu {
             position: relative;
-            margin-left: 14px;
+            margin: 0 16px 0 10px;
+            width: 48px;
             padding-left: 0;
             padding-right: 6px;
           }

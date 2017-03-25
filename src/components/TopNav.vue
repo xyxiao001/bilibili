@@ -80,17 +80,20 @@
           <router-link :to="{path: '/'}" title="周边">周边</router-link>
         </li>
         <li>
-          <router-link :to="{path: '/'}" title="BML">BML</router-link>
+          <router-link :to="{path: '/'}" title="移动端" class="phone">
+            <span>移动端</span>
+            <div class="mobile-p-box"><div class="mobile-p-qrcode"></div></div>
+          </router-link>
         </li>
       </ul>
       <div class="user-box">
         <ul>
           <li>
-            <router-link :to="{path: '/'}" title="登录">登录</router-link>
+            <a href="https://passport.bilibili.com/login" target="_blank" title="登录">登录</a>
           </li>
           <i class="s-line"></i>
           <li>
-            <router-link :to="{path: '/'}" title="注册">注册</router-link>
+            <a href="https://passport.bilibili.com/register/phone"  target="_blank" title="注册">注册</a>
           </li>
           <li class="none">
             <router-link :to="{path: '/'}" title="投稿" class="i-link">投 稿</router-link>
@@ -108,7 +111,7 @@
                 </a>
               </li>
               <li>
-                <a href="http://member.bilibili.com/v/l" target="_blank">
+                <a href="http://member.bilibili.com/v/video/submit.html" target="_blank">
                   <i class="b-icon b-icon-vc"></i>
                   <span>创作中心</span>
                 </a>
@@ -546,14 +549,48 @@ export default {
 
             a {
               width: 40px;
-              padding-left: 32px;
+              padding-left: 33px;
+              padding-right: 0;
             }
           }
 
           a {
             display: inline-block;
-            padding: 0 15px;
+            padding: 0 12px;
             height: 100%;
+          }
+
+          a.phone {
+            .mobile-p-box {
+              position: absolute;
+              top: 44px;
+              left: -20px;
+              visibility: hidden;
+              overflow: hidden;
+              width: 259px;
+              height: 174px;
+              background: url(http://static.hdslb.com/images/base/app-box.png) center center no-repeat;
+              opacity: 0;
+              transition: .2s;
+              transition-property: opacity;
+              *display: none;
+              z-index: 999;
+
+              .mobile-p-qrcode {
+                position: absolute;
+                top: 30px;
+                left: 80px;
+                width: 100px;
+                height: 100px;
+                background: url(http://static.hdslb.com/images/base/app-qrcode.png) center center no-repeat;
+              }
+            }
+
+            &:hover .mobile-p-box {
+              visibility: visible;
+              opacity: 1;
+              *display: block;
+            }
           }
         }
       }
@@ -561,6 +598,7 @@ export default {
       .user-box {
         float: right;
         height: 42px;
+        font-size: 12px;
 
         ul {
           padding-left: 10px;
@@ -594,7 +632,7 @@ export default {
               height: 48px;
               border-radius: 0 0 5px 5px;
               color: #fff!important;
-              font-size: 14px;
+              font-size: 12px;
             }
 
             a.i-link:hover {
@@ -605,7 +643,7 @@ export default {
           .s-line {
             float: left;
             display: inline-block;
-            border-left: 1px solid #222;
+            border-left: 1px solid #fff;
             height: 12px;
             margin-top: 16px;
             vertical-align: top;
