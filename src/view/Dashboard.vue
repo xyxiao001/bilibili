@@ -17,8 +17,15 @@
         </div>
       </div>
       <!-- 推荐 -->
-      <div class="container b-section" v-for="item in clists" :id="item.id">
-        <p>{{ item.name }}</p>
+      <section ref="navDetail">
+        <div class="container b-section" v-for="item in clists" :id="item.id">
+          <p>{{ item.name }}</p>
+        </div>
+      </section>
+      <div class="footer container">
+        <a href="https://github.com/xyxiao001" target="_blank">footer</a>
+        <a href="https://github.com/xyxiao001" target="_blank">goodboy</a>
+        <p>看看超过会怎样</p>
       </div>
     </div>
   </div>
@@ -134,6 +141,12 @@ export default {
       }, (response) => {
         console.log('请求失败!')
       })
+    },
+    updateView () {
+      this.$refs.navDetail.childNodes.forEach((item, index) => {
+        this.clists[index].height = parseInt(window.getComputedStyle(item).height.replace('px', ''))
+        this.clists[index].top = item.offsetTop
+      })
     }
   },
   // 页面进入执行
@@ -143,6 +156,9 @@ export default {
     // 输入框的placeholder 导航栏图片和文字
     this.nav()
     // this.placeholder()
+
+    // 获取页面模块位置,更新数据
+    this.updateView()
   },
   // 页面切换
   destroyed () {
@@ -221,6 +237,28 @@ export default {
 
   #guochuang, #youxi, #guichu, #dianying{
     background-color: #f05b72;
+  }
+
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    height: 1000px;
+    color: #fffffb;
+    background-color: #e5e9f2;
+
+    a {
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-size: 60px;
+      color: #2980b9;
+    }
+
+    p {
+      width: 100%;
+      text-align: center;
+      color: black;
+    }
   }
 
   @media screen and (max-width: 1400px) {
