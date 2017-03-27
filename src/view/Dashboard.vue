@@ -4,6 +4,8 @@
       <topNav :bg="navs.pic" :light="navs.style"></topNav>
       <bgNav :logo="navs.litpic" :bg="navs.pic" :title="navs.name" :url="navs.url"></bgNav>
     </div>
+    <!-- 导航栏 -->
+    <SliderNav :lists="clists"></SliderNav>
     <div class="b-page-body">
       <!-- 顶部 -->
       <div class="container" id="index-top">
@@ -14,15 +16,9 @@
           <Lcarousel></Lcarousel>
         </div>
       </div>
-
       <!-- 推荐 -->
-      <div class="container" id="promote">
-        <div class="b-l">
-          left
-        </div>
-        <div class="b-right">
-          right
-        </div>
+      <div class="container b-section" v-for="item in clists" :id="item.id">
+        <p>{{ item.name }}</p>
       </div>
     </div>
   </div>
@@ -33,6 +29,7 @@ import TopNav from '../components/TopNav'
 import BgNav from '../components/BgNav'
 import Mcarousel from '../components/Mcarousel'
 import Lcarousel from '../components/Lcarousel'
+import SliderNav from '../components/SliderNav'
 
 export default {
   data () {
@@ -44,14 +41,77 @@ export default {
         pic: '',
         url: '',
         style: 0
-      }
+      },
+      clists: [
+        {
+          name: '直播',
+          id: 'zhibo'
+        },
+        {
+          name: '动画',
+          id: 'donghua'
+        },
+        {
+          name: '番剧',
+          id: 'fanjv'
+        },
+        {
+          name: '国创',
+          id: 'guochuang'
+        },
+        {
+          name: '音乐',
+          id: 'yinyue'
+        },
+        {
+          name: '舞蹈',
+          id: 'wudao'
+        },
+        {
+          name: '游戏',
+          id: 'youxi'
+        },
+        {
+          name: '科技',
+          id: 'keji'
+        },
+        {
+          name: '生活',
+          id: 'shenghuo'
+        },
+        {
+          name: '鬼畜',
+          id: 'guichu'
+        },
+        {
+          name: '时尚',
+          id: 'shishang'
+        },
+        {
+          name: '广告',
+          id: 'guanggao'
+        },
+        {
+          name: '娱乐',
+          id: 'yule'
+        },
+        {
+          name: '电影',
+          id: 'dianying'
+        },
+        {
+          name: 'TV剧',
+          id: 'tv'
+        }
+      ]
     }
   },
   components: {
     TopNav,
     BgNav,
     Mcarousel,
-    Lcarousel
+    Lcarousel,
+    SliderNav
   },
   methods: {
     mcarousel () {
@@ -141,15 +201,26 @@ export default {
     }
   }
 
-  #promote {
-    .b-l {
-      width: 880px;
-    }
+  .b-section {
+    height: 360px;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #00a1d6;
+    font-size: 20px;
+    text-align: center;
+    line-height: 360px;
+  }
 
-    .b-r {
-      min-height: 195px;
-      height: 195px;
-    }
+  #donghua, #yinyue, #keji, #guanggao{
+    background-color: #2ecc71;
+  }
+
+  #fanjv, #wudao, #shenghuo, #yule {
+    background-color: #324057;
+  }
+
+  #guochuang, #youxi, #guichu, #dianying{
+    background-color: #f05b72;
   }
 
   @media screen and (max-width: 1400px) {
