@@ -5,10 +5,10 @@
       <bgNav :logo="navs.litpic" :bg="navs.pic" :title="navs.name" :url="navs.url"></bgNav>
     </div>
     <!-- 导航栏 -->
-    <SliderNav :lists="clists"></SliderNav>
+    <SliderNav :lists="clists" :left="slideLeft"></SliderNav>
     <div class="b-page-body">
       <!-- 顶部 -->
-      <div class="container" id="index-top">
+      <div class="container" id="index-top" ref="container">
         <div class="b-l">
           <Mcarousel :carousels="carousels"></Mcarousel>
         </div>
@@ -49,6 +49,7 @@ export default {
         url: '',
         style: 0
       },
+      slideLeft: 0,
       clists: [
         {
           name: '直播',
@@ -147,6 +148,11 @@ export default {
         this.clists[index].height = parseInt(window.getComputedStyle(item).height.replace('px', ''))
         this.clists[index].top = item.offsetTop
       })
+    },
+    updateSlide () {
+      var screenW = document.body.clientWidth
+      var container = parseInt(window.getComputedStyle(this.$refs.container).width.replace('px', ''))
+      this.slideLeft = (screenW + container) / 2 + 10
     }
   },
   // 页面进入执行
@@ -159,6 +165,12 @@ export default {
 
     // 获取页面模块位置,更新数据
     this.updateView()
+
+    this.updateSlide()
+
+    window.addEventListener('resize', () => {
+      this.updateSlide()
+    })
   },
   // 页面切换
   destroyed () {

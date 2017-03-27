@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="index-nav" :style="{'top': navTop + 'px'}">
+  <div class="index-nav" :style="{'top': navTop + 'px', 'left': left + 'px'}">
     <div class="nav-list">
       <div class="nav-item" v-for="(item, $index) in lists" :class="{'activity': $index === nowItem}">
         {{ item.name }}
@@ -20,7 +20,7 @@ export default {
       nowTop: 0
     }
   },
-  props: ['lists'],
+  props: ['lists', 'left'],
   methods: {
     updateNav () {
       this.nowTop = window.scrollY
@@ -33,9 +33,12 @@ export default {
             if (this.nowTop > item.top - 150 && this.nowTop < item.top + item.height) {
               this.nowItem = this.lists.length - 1
               return false
+            } else {
+              this.nowItem = this.lists.length
+              return true
             }
           } else {
-            this.nowItem = this.lists.length
+            this.nowItem = -1
             return true
           }
         }
@@ -73,7 +76,7 @@ export default {
     opacity: 1;
     display: block;
     top: 232px;
-    left: 1541.5px;
+    left: 1545px;
     right: auto;
   }
 
