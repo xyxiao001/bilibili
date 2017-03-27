@@ -21,7 +21,7 @@
     <div class="h-menu">
       <div class="menu-wrapper">
         <ul>
-          <li>
+          <li class="index-menu">
             <router-link :to="{path: '/'}" class="dashboard">
               <span class="menu-text">首页</span>
             </router-link>
@@ -81,9 +81,11 @@
             </router-link>
             <smallMenu :items="onlines"></smallMenu>
           </li>
+          <li class="last-menu">
+            <a class="black-house" href="//www.bilibili.com/blackroom" target="_blank"><span>小黑屋</span></a>
+          </li>
         </ul>
         <div class="right-menu">
-          <a class="black-house" href="//www.bilibili.com/blackroom" target="_blank"><em>小黑屋</em></a>
           <img src="http://i0.hdslb.com/icon/575cd42b00dbd63236116cb56ae44641.gif" alt="动起来" />
         </div>
       </div>
@@ -459,6 +461,7 @@ export default {
         padding: 6px 0;
 
         ul {
+          float: left;
 
           li {
             float: left;
@@ -493,12 +496,17 @@ export default {
             }
           }
 
+          li.index-menu {
+            padding: 0 18px 0 0;
+          }
+
           li.other-menu {
-            width: 62px;
+            width: 48px;
             padding-right: 0;
+            margin-right: 12px;
 
             a {
-              width: 62px;
+              width: 48px;
               text-align: center;
             }
 
@@ -531,14 +539,14 @@ export default {
             }
           }
 
-          li.last-menu{
+          li.last-menu {
             float: left;
             position: relative;
             font-size: 14px;
             display: block;
             height: 50px;
-            margin-left: 20px;
-            padding-right: 12px;
+            margin: 0 7px 0 10px;
+            padding-right: 0px;
 
             a {
               width: 40px;
@@ -556,6 +564,11 @@ export default {
 
             a.live {
               background: url('http://static.hdslb.com/images/base/icons.png') -664px -518px no-repeat;
+            }
+
+            a.black-house {
+              width: 60px;
+              background: url(http://static.hdslb.com/images/base/icons.png) -727px -519px no-repeat;
             }
 
             .second-menu {
@@ -676,29 +689,6 @@ export default {
           float: right;
           margin-right: -1px;
           height: 50px;
-
-          .black-house {
-            float: left;
-            position: relative;
-            font-size: 14px;
-            display: block;
-            height: 50px;
-            line-height: 50px;
-            margin-right: 13px;
-
-            em {
-              display: inline-block;
-              padding-left: 22px;
-              padding-right: 0;
-              padding-top: 0;
-              height: 50px;
-              line-height: 50px;
-              font-style: normal;
-              margin: 0!important;
-              background: url(http://static.hdslb.com/images/base/icons.png) -727px -519px no-repeat;
-              font-size: 16px;
-            }
-          }
         }
       }
     }
@@ -720,11 +710,16 @@ export default {
             padding-right: 9px;
           }
 
+          li.index-menu {
+            padding: 0 9px 0 0;
+          }
+
           li.other-menu {
-            width: 48px;
+            width: 47px;
+            margin-right: 0;
 
             a {
-              width: 48px;
+              width: 47px;
               height: 48px;
             }
           }
