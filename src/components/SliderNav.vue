@@ -45,7 +45,7 @@ export default {
             return false
           } else {
             if (index === this.lists.length - 1) {
-              if (this.nowTop > item.top - this.offsetTop && this.nowTop < item.top + item.height) {
+              if (this.nowTop >= item.top - this.offsetTop && this.nowTop < item.top + item.height + this.offsetTop) {
                 this.nowItem = this.lists.length - 1
                 return false
               } else {
@@ -68,7 +68,28 @@ export default {
     },
     // 点击跳转
     goScroll (top) {
-      window.scrollTo(0, top)
+      // 当前时间
+      var t = 0
+      // 初始值
+      var b = window.scrollY
+      // 变化量
+      var c = top - b
+      // 持续时间
+      var d = 20
+      var step = () => {
+        var v = this.run(t, b, c, d)
+        // console.log(v)
+        window.scrollTo(0, v)
+        t += 1
+        if (t <= d) {
+          window.requestAnimationFrame(step)
+        }
+      }
+      step()
+    },
+    // 运动
+    run (t, b, c, d) {
+      return c * (t /= d) * t + b
     }
   },
   mounted () {
