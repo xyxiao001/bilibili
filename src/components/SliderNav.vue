@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="index-nav" :style="{'top': navTop + 'px', 'left': left + 'px'}">
     <div class="nav-list">
-      <div class="nav-item" v-for="(item, $index) in lists" :class="{'activity': $index === nowItem}" @click="navClick(item.top, $index)">
+      <div class="nav-item" v-for="(item, $index) in lists" :class="{'activity': $index === nowItem}" @click="navClick(item.top - offsetTop, $index)">
         {{ item.name }}
       </div>
       <div class="nav-item choose" :style="{'transform': 'translate3d(0, '+ (nowItem + 1) * 32 + 'px, 0)'}"></div>
     </div>
     <div class="nav-item rank" title="排序"><i class="n-icon-sort"></i><p>排序</p></div>
-    <div class="gotop"><div class="s-line"></div><div class="btn_gotop" title="返回顶部"></div></div>
+    <div class="gotop"><div class="s-line"></div><div class="btn_gotop" title="返回顶部" @click="goScroll(0)"></div></div>
   </div>
 </template>
 
@@ -68,21 +68,21 @@ export default {
     },
     // 点击跳转
     goScroll (top) {
-      console.log(top)
+      window.scrollTo(0, top)
     }
   },
   mounted () {
     // 获取滚动条高度
     this.updateNav()
     if (window.scrollY > 200) {
-      this.navTop = 0
+      this.navTop = 100
     } else {
       this.navTop = 232
     }
     window.onscroll = () => {
       this.updateNav()
       if (window.scrollY > 200) {
-        this.navTop = 0
+        this.navTop = 100
       } else {
         this.navTop = 232
       }

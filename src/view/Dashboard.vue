@@ -50,7 +50,7 @@ export default {
         style: 0
       },
       slideLeft: 0,
-      offsetTop: 200,
+      offsetTop: 150,
       clists: [
         {
           name: '直播',
