@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="index-nav" :style="{'top': navTop + 'px', 'left': left + 'px'}">
     <div class="nav-list">
-      <div class="nav-item" v-for="(item, $index) in lists" :class="{'activity': $index === nowItem}">
+      <div class="nav-item" v-for="(item, $index) in lists" :class="{'activity': $index === nowItem}" @click="navClick(item.top, $index)">
         {{ item.name }}
       </div>
       <div class="nav-item choose" :style="{'transform': 'translate3d(0, '+ (nowItem + 1) * 32 + 'px, 0)'}"></div>
@@ -20,29 +20,55 @@ export default {
       nowTop: 0
     }
   },
-  props: ['lists', 'left'],
+  props: {
+    lists: {
+      type: Array,
+      default: []
+    },
+    offsetTop: {
+      type: Number,
+      default: 0
+    },
+    left: {
+      type: Number,
+      default: 0
+    }
+  },
   methods: {
+    // 更新导航选择的位置
     updateNav () {
-      this.nowTop = window.scrollY
-      this.lists.every((item, index) => {
-        if (this.nowTop < item.top - 150) {
-          this.nowItem = index - 1
-          return false
-        } else {
-          if (index === this.lists.length - 1) {
-            if (this.nowTop > item.top - 150 && this.nowTop < item.top + item.height) {
-              this.nowItem = this.lists.length - 1
-              return false
+      if (this.lists[0].top) {
+        this.nowTop = window.scrollY
+        this.lists.every((item, index) => {
+          if (this.nowTop < item.top - this.offsetTop) {
+            this.nowItem = index - 1
+            return false
+          } else {
+            if (index === this.lists.length - 1) {
+              if (this.nowTop > item.top - this.offsetTop && this.nowTop < item.top + item.height) {
+                this.nowItem = this.lists.length - 1
+                return false
+              } else {
+                this.nowItem = this.lists.length
+                return true
+              }
             } else {
-              this.nowItem = this.lists.length
+              this.nowItem = -1
               return true
             }
-          } else {
-            this.nowItem = -1
-            return true
           }
-        }
-      })
+        })
+      }
+    },
+
+    // 导航点击
+    navClick (top, index) {
+      this.nowItem = index
+      this.goScroll(top)
+    },
+    // 点击跳转
+    goScroll (top) {
+      console.log(top)
     }
   },
   mounted () {

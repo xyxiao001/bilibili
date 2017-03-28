@@ -71,7 +71,7 @@ export default {
     start () {
       this.set = setInterval(() => {
         if (this.carousels.length > 0) {
-          this.index = this.index >= 4 ? 0 : this.index += 1
+          this.index = this.index >= this.carousels.length - 1 ? 0 : this.index += 1
         }
       }, 5000)
     }

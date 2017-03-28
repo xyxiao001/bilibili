@@ -5,7 +5,7 @@
       <bgNav :logo="navs.litpic" :bg="navs.pic" :title="navs.name" :url="navs.url"></bgNav>
     </div>
     <!-- 导航栏 -->
-    <SliderNav :lists="clists" :left="slideLeft"></SliderNav>
+    <SliderNav :lists="clists" :left="slideLeft" :offsetTop="offsetTop"></SliderNav>
     <div class="b-page-body">
       <!-- 顶部 -->
       <div class="container" id="index-top" ref="container">
@@ -50,6 +50,7 @@ export default {
         style: 0
       },
       slideLeft: 0,
+      offsetTop: 200,
       clists: [
         {
           name: '直播',
