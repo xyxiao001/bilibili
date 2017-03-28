@@ -68,6 +68,14 @@ export default {
     },
     // 点击跳转
     goScroll (top) {
+      var requestAnimationFrame
+      if (window.requestAnimationFrame) {
+        requestAnimationFrame = window.requestAnimationFrame
+      } else {
+        requestAnimationFrame = setTimeout((fn) => {
+          fn()
+        }, 17)
+      }
       // 当前时间
       var t = 0
       // 初始值
@@ -82,7 +90,7 @@ export default {
         window.scrollTo(0, v)
         t += 1
         if (t <= d) {
-          window.requestAnimationFrame(step)
+          requestAnimationFrame(step)
         }
       }
       step()

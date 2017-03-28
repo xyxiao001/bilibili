@@ -145,7 +145,8 @@ export default {
       })
     },
     updateView () {
-      this.$refs.navDetail.childNodes.forEach((item, index) => {
+      var arr = Array.prototype.slice.call(this.$refs.navDetail.childNodes)
+      arr.forEach((item, index) => {
         this.clists[index].height = parseInt(window.getComputedStyle(item).height.replace('px', ''))
         this.clists[index].top = item.offsetTop
       })
