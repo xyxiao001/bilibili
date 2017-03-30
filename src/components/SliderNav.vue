@@ -119,14 +119,14 @@ export default {
     // 获取滚动条高度
     this.updateNav()
     if (window.scrollY > 200) {
-      this.navTop = 50
+      this.navTop = 20
     } else {
       this.navTop = 232
     }
     window.onscroll = () => {
       this.updateNav()
       if (window.scrollY > 200) {
-        this.navTop = 50
+        this.navTop = 20
       } else {
         this.navTop = 232
       }
@@ -273,7 +273,7 @@ export default {
 
     .nav-item.activity {
       color: #222;
-      background-color: white;
+      background-color: #f6f9fa;
 
       &:hover {
         color: white;
