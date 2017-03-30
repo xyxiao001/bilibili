@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="body-bg" v-show="drap"></div>
+    <div class="body-bg" v-show="drap" @click="drap = !drap"></div>
     <div class="b-page-header">
       <topNav :bg="navs.pic" :light="navs.style"></topNav>
       <bgNav :logo="navs.litpic" :bg="navs.pic" :title="navs.name" :url="navs.url"></bgNav>
@@ -200,7 +200,7 @@ export default {
 
   .body-bg {
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
@@ -243,6 +243,10 @@ export default {
       float: right;
       width: 720px;
     }
+  }
+
+  .b-page-header {
+    min-width: 1160px;
   }
 
   .b-section {

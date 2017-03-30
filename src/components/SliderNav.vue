@@ -140,7 +140,7 @@ export default {
     position: fixed;
     position: fixed;
     width: 48px;
-    z-index: 90;
+    z-index: 1001;
     text-align: center;
     user-select: none;
     opacity: 1;
@@ -267,13 +267,17 @@ export default {
   }
 
   .draping .nav-list {
+    .nav-item {
+      cursor: move;
+    }
+
     .nav-item.activity {
       color: #222;
       background-color: white;
 
       &:hover {
         color: white;
-        background-color: #00a1d6; 
+        background-color: #00a1d6;
       }
     }
 
