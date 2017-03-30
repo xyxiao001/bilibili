@@ -270,9 +270,15 @@ export default {
     .nav-item.activity {
       color: #222;
       background-color: white;
+
+      &:hover {
+        color: white;
+        background-color: #00a1d6; 
+      }
     }
 
     .choose {
+      display: none;
       background-color: white;
     }
   }
