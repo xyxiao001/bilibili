@@ -1,12 +1,14 @@
 <template lang="html">
-  <div class="index-nav" :style="{'top': navTop + 'px', 'left': left + 'px'}">
+  <div class="index-nav" :style="{'top': navTop + 'px', 'left': left + 'px'}" :class="{'draping': drap}">
+    <div class="nav-bg" v-show="drap"></div>
+    <div class="nav-tip" v-show="drap"></div>
     <div class="nav-list">
       <div class="nav-item" v-for="(item, $index) in lists" :class="{'activity': $index === nowItem}" @click="navClick(item.top - offsetTop, $index)">
         {{ item.name }}
       </div>
       <div class="nav-item choose" :style="{'transform': 'translate3d(0, '+ (nowItem + 1) * 32 + 'px, 0)'}"></div>
     </div>
-    <div class="nav-item rank" title="排序"><i class="n-icon-sort"></i><p>排序</p></div>
+    <div class="nav-item rank" title="排序" @click="changeDraps"><i class="n-icon-sort"></i><p>排序</p></div>
     <div class="gotop"><div class="s-line"></div><div class="btn_gotop" title="返回顶部" @click="goScroll(0)"></div></div>
   </div>
 </template>
@@ -32,6 +34,10 @@ export default {
     left: {
       type: Number,
       default: 0
+    },
+    drap: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -45,7 +51,7 @@ export default {
             return false
           } else {
             if (index === this.lists.length - 1) {
-              if (this.nowTop >= item.top - this.offsetTop && this.nowTop < item.top + item.height + this.offsetTop) {
+              if (this.nowTop >= item.top - this.offsetTop && this.nowTop < item.top + item.height) {
                 this.nowItem = this.lists.length - 1
                 return false
               } else {
@@ -98,20 +104,25 @@ export default {
     // 运动
     run (t, b, c, d) {
       return c * (t /= d) * t + b
+    },
+
+    // 排序
+    changeDraps () {
+      this.$emit('updateDrap', !this.drap)
     }
   },
   mounted () {
     // 获取滚动条高度
     this.updateNav()
     if (window.scrollY > 200) {
-      this.navTop = 100
+      this.navTop = 50
     } else {
       this.navTop = 232
     }
     window.onscroll = () => {
       this.updateNav()
       if (window.scrollY > 200) {
-        this.navTop = 100
+        this.navTop = 50
       } else {
         this.navTop = 232
       }
@@ -135,6 +146,34 @@ export default {
     right: auto;
   }
 
+  .nav-bg {
+    position: absolute;
+    top: -15px;
+    left: -130px;
+    height: 102%;
+    padding-bottom: 20px;
+    width: 200px;
+    opacity: 1;
+    z-index: 5;
+    width: 200px;
+    background: #fff;
+    background: rgba(255,255,255,0.8);
+    transition: .3s;
+    border-radius: 4px;
+  }
+
+  .nav-tip {
+    background: url(http://static.hdslb.com/images/v3images/tab2233.png) 0 0 no-repeat;
+    position: absolute;
+    left: -117px;
+    top: 0px;
+    width: 117px;
+    height: 333px;
+    z-index: 10010;
+    transition: .3s;
+    opacity: 1;
+  }
+
   .nav-list {
     position: relative;
     z-index: 233;
@@ -146,6 +185,8 @@ export default {
   }
 
   .nav-item {
+    position: relative;
+    z-index: 233;
     height: 32px;
     line-height: 32px;
     transition: .2s linear;
@@ -196,6 +237,8 @@ export default {
   }
 
   .gotop {
+    position: relative;
+    z-index: 233;
     .s-line {
       border-left: 2px solid #ddd;
       border-right: 2px solid #ddd;
@@ -216,6 +259,17 @@ export default {
         background-color: #00a1d6;
         background-position: -714px -72px;
       }
+    }
+  }
+
+  .draping .nav-list {
+    .nav-item.activity {
+      color: #222;
+      background-color: white;
+    }
+
+    .choose {
+      background-color: white;
     }
   }
 </style>

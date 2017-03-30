@@ -1,11 +1,12 @@
 <template>
   <div class="content">
+    <div class="body-bg" v-show="drap"></div>
     <div class="b-page-header">
       <topNav :bg="navs.pic" :light="navs.style"></topNav>
       <bgNav :logo="navs.litpic" :bg="navs.pic" :title="navs.name" :url="navs.url"></bgNav>
     </div>
     <!-- 导航栏 -->
-    <SliderNav :lists="clists" :left="slideLeft" :offsetTop="offsetTop"></SliderNav>
+    <SliderNav :lists="clists" :left="slideLeft" :offsetTop="offsetTop" :drap="drap" v-on:updateDrap="updateDrap"></SliderNav>
     <div class="b-page-body">
       <!-- 顶部 -->
       <div class="container" id="index-top" ref="container">
@@ -51,6 +52,7 @@ export default {
       },
       slideLeft: 0,
       offsetTop: 150,
+      drap: false,
       clists: [
         {
           name: '直播',
@@ -155,6 +157,10 @@ export default {
       var screenW = document.body.clientWidth
       var container = parseInt(window.getComputedStyle(this.$refs.container).width.replace('px', ''))
       this.slideLeft = (screenW + container) / 2 + 10
+    },
+    // 回调drap事件
+    updateDrap (data) {
+      this.drap = data
     }
   },
   // 页面进入执行
@@ -190,6 +196,14 @@ export default {
     color: #222;
     min-height: 990px;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .body-bg {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
   }
 
   ul, span, p, h1, h2, h3, a {
