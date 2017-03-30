@@ -1,7 +1,11 @@
 <template lang="html">
   <div class="index-nav" :style="{'top': navTop + 'px', 'left': left + 'px'}" :class="{'draping': drap}">
-    <div class="nav-bg" v-show="drap"></div>
-    <div class="nav-tip" v-show="drap"></div>
+    <transition name="fade">
+      <span v-if="drap">
+        <div class="nav-bg"></div>
+        <div class="nav-tip"></div>
+      </span>
+    </transition>
     <div class="nav-list">
       <div class="nav-item" v-for="(item, $index) in lists" :class="{'activity': $index === nowItem}" @click="navClick(item.top - offsetTop, $index)">
         {{ item.name }}
@@ -271,5 +275,23 @@ export default {
     .choose {
       background-color: white;
     }
+  }
+
+  .fade-enter-active, .fade-leave-active {
+	   transition: opacity .3s
+   }
+
+   .fade-enter, .fade-leave-active {
+    .nav-tip {
+  		top: 50px;
+  		opacity: 0;
+  	}
+  	.nav-bg {
+  		top: 150px;
+  		left: -70px;
+  		height: 100px;
+  		width: 100px;
+  		opacity: 0;
+     }
   }
 </style>
